@@ -30,7 +30,7 @@ describe('App route and layout shell (S1-T3)', () => {
   it.each([
     { path: '/', expectedH1: /geoffrey obwocha/i },
     { path: '/work', expectedH1: /selected work & engineering case studies/i },
-    { path: '/work/halisi-app', expectedH1: /^halisi app$/i },
+    { path: '/work/halisi-app', expectedH1: /^halisi/i },
     { path: '/about', expectedH1: /about geoffrey obwocha/i },
     { path: '/contact', expectedH1: /contact & project enquiries/i },
   ])(

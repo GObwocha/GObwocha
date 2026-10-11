@@ -43,7 +43,7 @@ export function ProjectDetailPage() {
         </Link>
       </div>
 
-      <header
+      <div
         className="case-study__header"
         style={{
           display: 'flex',
@@ -204,7 +204,7 @@ export function ProjectDetailPage() {
             </div>
           )}
         </dl>
-      </header>
+      </div>
 
       {/* Teammates & Collaborative Credits Section */}
       {project.teammates && project.teammates.length > 0 && (

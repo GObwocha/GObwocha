@@ -243,3 +243,171 @@ All sprint tasks, validation results, and board transitions are recorded chronol
 - **Commit or PR:** `7f5a1ac` — `feat(S3-T1): add typed Supabase configuration, server boundary guard, and safe error handling`
 - **Next ready task:** `S3-T2` (Create contact table migration and RLS)
 
+---
+
+## 2026-10-11 — S2-T1: Build home hero and CTA
+
+- **Status:** DONE
+- **Summary:** Built the responsive, editorial Home page (`src/routes/home/HomePage.tsx`) featuring the above-the-fold hero with location/timezone telemetry, availability status, single `<h1>`, owner-verified value proposition, primary CTA (`/contact`) and secondary CTA (`/work`), featured project case studies with explicit `width`/`height` attributes and teammate acknowledgements, capability pillars, and bottom conversion CTA.
+- **Files changed:**
+  - `src/routes/home/HomePage.tsx` (updated)
+  - `src/routes/routes.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/routes/routes.test.tsx`
+- **Results:** **PASS** — Hero, CTAs, featured projects, and capabilities render cleanly with zero `vitest-axe` violations.
+- **Manual checks:** Verified zero fabricated claims or placeholder links on `/`.
+- **Known limitations / follow-up:** E2E responsive verification across 320px–2560px in `S4-T3` / `S6-T1`.
+- **Commit or PR:** `2452a46` — `feat(S2-T1): build responsive home hero, featured work showcase, and CTAs`
+- **Next ready task:** `S4-T1` (Optimize imagery and fonts)
+
+---
+
+## 2026-10-11 — S2-T2: Build project card and grid system
+
+- **Status:** DONE
+- **Summary:** Implemented reusable `<ProjectCard />` (`src/components/projects/ProjectCard.tsx`) and `<ProjectGrid />` (`src/components/projects/ProjectGrid.tsx`) with aspect-ratio-locked (`16 / 10`) media containers, explicit `800×500` image dimensions (`CLS = 0`), tabular indices, descriptive case-study links, collaborator callouts, technology tags, verified external links, and accessible empty-state handling.
+- **Files changed:**
+  - `src/components/projects/ProjectCard.tsx` (created)
+  - `src/components/projects/ProjectGrid.tsx` (created)
+  - `src/components/projects/projects.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/components/projects/projects.test.tsx`
+- **Results:** **PASS** — `7 passed (7)` unit, schema, empty-state, and `vitest-axe` tests.
+- **Manual checks:** Verified keyboard focus and `44×44px` minimum touch target sizing on project links.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `4ef583c` — `feat(S2-T2): build accessible ProjectCard and ProjectGrid components`
+- **Next ready task:** `S2-T3` (Add typed project content)
+
+---
+
+## 2026-10-11 — S2-T3: Add typed project content
+
+- **Status:** DONE
+- **Summary:** Enriched `src/data/projects.ts` with deep, repository-verified architectural specifications across all 7 owner-confirmed projects (`halisi-app`, `greenroute`, `kula-kwa-macho`, `somastar`, `geliscope`, `email-analyzer`, `ole-ken-hotel`), including full teammate credits for **Halisi** (`Collins Kimanzi`, `Ndegwa Waudo`, `Dennis Kuria`), **GreenRoute** (`Benson Mose`, `Timothy Mwita`), and **SomaStar** (`Emmanuel Makori Obiero`). Created 7 bespoke architectural SVG cover illustrations (`public/images/projects/*-cover.svg`, `< 4 KB` each) and integrated `<ProjectGrid />` into `src/routes/work/WorkPage.tsx`.
+- **Files changed:**
+  - `src/data/projects.ts` (updated)
+  - `src/routes/work/WorkPage.tsx` (updated)
+  - `public/images/projects/halisi-app-cover.svg` (created)
+  - `public/images/projects/greenroute-cover.svg` (created)
+  - `public/images/projects/kula-kwa-macho-cover.svg` (created)
+  - `public/images/projects/somastar-cover.svg` (created)
+  - `public/images/projects/geliscope-cover.svg` (created)
+  - `public/images/projects/email-analyzer-cover.svg` (created)
+  - `public/images/projects/ole-ken-hotel-cover.svg` (created)
+  - `src/components/projects/projects.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/components/projects/projects.test.tsx`
+- **Results:** **PASS** — All 7 projects verified against strict schema, URLs, teammate credits, and zero placeholders.
+- **Manual checks:** Confirmed every cover SVG exists in `public/images/projects/` and weighs `< 4 KB`.
+- **Known limitations / follow-up:** `1200×630` Open Graph PNG social preview cards will be generated in `S4-T1` / `S5-T2`.
+- **Commit or PR:** `c776672` — `feat(S2-T3): enrich verified 7-project dataset, SVG cover assets, and project tests`
+- **Next ready task:** `S2-T4` (Build project detail/case study)
+
+---
+
+## 2026-10-11 — S2-T4: Build project detail/case study
+
+- **Status:** DONE
+- **Summary:** Built the dynamic case study page (`src/routes/project-detail/ProjectDetailPage.tsx`) rendering the forensic specification ledger (`<dl>`), dedicated **Engineering Team & Co-Contributors** section with clickable GitHub profile links, numbered architectural process (`<ol>`), verified outcomes (`<ul>`), adjacent case-study navigation, conversion CTA, and `<NotFoundPage />` fallback for invalid slugs.
+- **Files changed:**
+  - `src/routes/project-detail/ProjectDetailPage.tsx` (updated)
+  - `src/routes/routes.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/routes/routes.test.tsx src/app/App.test.tsx`
+  - `npm run build`
+- **Results:** **PASS** — Pre-renders all 7 `/work/<slug>/index.html` static bundles with unique metadata and passes all case-study and 404 tests.
+- **Manual checks:** Verified collaborator credits and GitHub profile links on `/work/halisi-app`, `/work/greenroute`, and `/work/somastar`.
+- **Known limitations / follow-up:** Direct deep-link E2E tests in Playwright (`S6-T1`).
+- **Commit or PR:** `957892d` — `feat(S2-T4): build dynamic project case study route with teammate acknowledgements`
+- **Next ready task:** `S5-T2` (SEO, social cards, crawlability)
+
+---
+
+## 2026-10-11 — S2-T5: Build About and capabilities sections
+
+- **Status:** DONE
+- **Summary:** Built the owner-verified About page (`src/routes/about/AboutPage.tsx`) presenting Geoffrey Obwocha's biography, Computer Science background at the **University of Nairobi**, collaborative engineering with the **Chiromo Tech Club**, working principles, and technical capabilities matrix.
+- **Files changed:**
+  - `src/routes/about/AboutPage.tsx` (updated)
+  - `src/routes/routes.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/routes/routes.test.tsx`
+- **Results:** **PASS** — `7 passed (7)` route and `vitest-axe` tests.
+- **Manual checks:** Verified zero fabricated credentials, awards, or client testimonials.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `536086c` — `feat(S2-T5): build owner-verified About and capabilities page with route tests`
+- **Next ready task:** `S4-T3` (Responsive and browser QA), `S4-T4` (Accessibility audit)
+
+---
+
+## 2026-10-11 — S3-T2: Create contact table migration and RLS
+
+- **Status:** DONE
+- **Summary:** Created `supabase/config.toml`, `supabase/migrations/20261011000000_create_contact_submissions.sql`, and `supabase/seed.sql`. Enforced `ENABLE ROW LEVEL SECURITY` and `FORCE ROW LEVEL SECURITY` on `public.contact_submissions`, column-level `CHECK` constraints (`name` 2–120 chars, RFC-aligned `email` 5–254 chars, allowed `project_type` enum, `message` 20–4000 chars), revoked default privileges, and granted only `INSERT (name, email, project_type, message)` to `anon` and `authenticated` with zero public `SELECT`, `UPDATE`, or `DELETE` policies.
+- **Files changed:**
+  - `supabase/config.toml` (created)
+  - `supabase/migrations/20261011000000_create_contact_submissions.sql` (created)
+  - `supabase/seed.sql` (created)
+- **Validation commands:**
+  - `npx vitest run src/components/contact/contact.test.tsx`
+- **Results:** **PASS** — Migration SQL and RLS policy invariants verified by automated test suite.
+- **Manual checks:** Confirmed 12-month data retention comment and zero public read/update/delete exposure.
+- **Known limitations / follow-up:** Live Supabase project migration application documented in `README.md` and `docs/RELEASE_CHECKLIST.md`.
+- **Commit or PR:** `a0d1fe8` — `feat(S3-T2): add contact_submissions migration, check constraints, and strict RLS policies`
+- **Next ready task:** `S3-T3` (Implement contact validation and submission)
+
+---
+
+## 2026-10-11 — S3-T3: Implement contact validation and submission
+
+- **Status:** DONE
+- **Summary:** Created shared `zod` contact validation (`src/lib/validation/contact.ts`), Supabase persistence handler (`src/lib/supabase/submitContact.ts`) that never fakes success when unconfigured or on DB error, accessible `<ContactForm />` (`src/components/contact/ContactForm.tsx`) with persistent labels, `aria-invalid`/`aria-describedby` field error associations, loading/disabled submit guard, confirmation view, and actionable `mailto:` error fallback, and integrated into `src/routes/contact/ContactPage.tsx`.
+- **Files changed:**
+  - `src/lib/validation/contact.ts` (created)
+  - `src/lib/supabase/submitContact.ts` (created)
+  - `src/components/contact/ContactForm.tsx` (created)
+  - `src/routes/contact/ContactPage.tsx` (updated)
+  - `src/components/contact/contact.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/components/contact/contact.test.tsx`
+- **Results:** **PASS** — `11 passed (11)` tests covering validation, DB persistence, RLS error sanitization, unconfigured fallback, and `vitest-axe` compliance.
+- **Manual checks:** Verified form never implies a message was sent unless Supabase returns `error: null`.
+- **Known limitations / follow-up:** E2E Playwright submission tests in `S6-T1`.
+- **Commit or PR:** `e3dcd3a` — `feat(S3-T3): implement validated contact form, Supabase persistence, and RLS/form tests`
+- **Next ready task:** `S5-T3` (Security review)
+
+---
+
+## 2026-10-11 — S3-T4: Add spam/abuse controls
+
+- **Status:** DONE
+- **Summary:** Implemented proportionate client/boundary anti-spam protections in `src/lib/security/antiSpam.ts`: hidden honeypot field detection (`isHoneypotTriggered`), minimum interaction duration check (`isSubmittedTooFast` `< 1500ms`), 60-second per-sender cooldown, and 10-minute duplicate payload guard (`checkSubmissionRateLimit`).
+- **Files changed:**
+  - `src/lib/security/antiSpam.ts` (created)
+  - `src/components/contact/contact.test.tsx` (updated)
+- **Validation commands:**
+  - `npx vitest run src/components/contact/contact.test.tsx`
+- **Results:** **PASS** — Honeypot, bot-timing, cooldown, and duplicate-payload rejection paths verified.
+- **Manual checks:** Confirmed zero PII is logged to `console` on rejection.
+- **Known limitations / follow-up:** Server-side PostgREST/Cloudflare edge rate limits complement client checks in production (`docs/SECURITY_REVIEW.md`).
+- **Commit or PR:** `333315e` — `feat(S3-T4): implement honeypot, timing, and rate-limit anti-spam controls`
+- **Next ready task:** `S5-T3` (Security review)
+
+---
+
+## 2026-10-11 — S4-T2: Implement motion and micro-interactions
+
+- **Status:** DONE
+- **Summary:** Created SSR-safe `useReducedMotion` hook (`src/components/motion/useReducedMotion.ts`), `IntersectionObserver`-based `<Reveal />` wrapper (`src/components/motion/Reveal.tsx`) that animates only `transform`/`opacity` and renders immediately in reduced-motion mode, and `<SectionHeader />` primitive (`src/components/ui/SectionHeader.tsx`). Added 7 unit and `vitest-axe` tests in `src/components/motion/motion.test.tsx`.
+- **Files changed:**
+  - `src/components/motion/useReducedMotion.ts` (created)
+  - `src/components/motion/Reveal.tsx` (created)
+  - `src/components/ui/SectionHeader.tsx` (created)
+  - `src/components/motion/motion.test.tsx` (created)
+- **Validation commands:**
+  - `npx vitest run src/components/motion/motion.test.tsx`
+- **Results:** **PASS** — `7 passed (7)` tests including `prefers-reduced-motion: reduce`, `IntersectionObserver`, keyboard focusability, and `vitest-axe`.
+- **Manual checks:** Confirmed zero layout-thrashing properties (`top`, `left`, `width`, `height`) are animated.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `33daf32` — `feat(S4-T2): implement reduced-motion-aware Reveal wrapper, hooks, and UI primitives`
+- **Next ready task:** `S5-T1` (Performance profiling and budgets)
