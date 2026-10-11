@@ -56,8 +56,8 @@ export const projects: readonly Project[] = [
       'TypeScript',
       'Tailwind CSS',
     ],
-    coverImage: '/images/projects/halisi-app-cover.svg',
-    gallery: ['/images/projects/halisi-app-cover.svg'],
+    coverImage: '/images/projects/halisi-app-cover.png',
+    gallery: ['/images/projects/halisi-app-cover.png'],
     altText:
       'Halisi architecture diagram showing FastAPI, Supabase pgvector CLIP ViT-B-32 visual matching, NVIDIA NIM Llama 3.1 8B classification, and Safaricom Daraja / Africa’s Talking channels',
     repositoryUrl: 'https://github.com/sigangandegwa/HalisiApp',
@@ -116,8 +116,8 @@ export const projects: readonly Project[] = [
       'Leaflet.js',
       'JavaScript',
     ],
-    coverImage: '/images/projects/greenroute-cover.svg',
-    gallery: ['/images/projects/greenroute-cover.svg'],
+    coverImage: '/images/projects/greenroute-cover.png',
+    gallery: ['/images/projects/greenroute-cover.png'],
     altText:
       'GreenRoute geospatial map architecture comparing NetworkX A* carbon-aware eco-routes and standard routes across Nairobi road segments',
     liveUrl: 'https://greenroute-production.up.railway.app/',
@@ -160,8 +160,8 @@ export const projects: readonly Project[] = [
       'Craving Quiz Engine',
       'Vercel',
     ],
-    coverImage: '/images/projects/kula-kwa-macho-cover.svg',
-    gallery: ['/images/projects/kula-kwa-macho-cover.svg'],
+    coverImage: '/images/projects/kula-kwa-macho-cover.png',
+    gallery: ['/images/projects/kula-kwa-macho-cover.png'],
     altText:
       'Kula-Kwa-Macho Kenyan culinary discovery platform showing Craving Quiz recommendations, Supabase SSR cart, and Boda Bob and Captain Chapati rider telemetry',
     liveUrl: 'https://kula-kwa-macho-zeta.vercel.app',
@@ -222,7 +222,7 @@ export const projects: readonly Project[] = [
     seoTitle: 'SomaStar — Adaptive Learning & AI Exam Intelligence Platform | Geoffrey Obwocha',
     seoDescription:
       'Case study of SomaStar, a React 19, FastAPI, SQLAlchemy 2.0, and Recharts adaptive exam intelligence platform co-engineered by Geoffrey Obwocha and Emmanuel Makori Obiero.',
-    ogImage: '/og/projects/somastar.png',
+    ogImage: '/og/projects/somastar.svg',
   },
   {
     slug: 'geliscope',
@@ -254,8 +254,8 @@ export const projects: readonly Project[] = [
       'Google Gemini Vision',
       "Bloom's Taxonomy Socratic Engine",
     ],
-    coverImage: '/images/projects/geliscope-cover.svg',
-    gallery: ['/images/projects/geliscope-cover.svg'],
+    coverImage: '/images/projects/geliscope-cover.png',
+    gallery: ['/images/projects/geliscope-cover.png'],
     altText:
       'GeliScope Vue 3 and Vuetify 3 educational portal showing Gemini Vision rubric grading and Bloom’s Taxonomy Socratic tutoring stages',
     liveUrl: 'https://geliscope.up.railway.app/',
@@ -296,8 +296,8 @@ export const projects: readonly Project[] = [
       'Gmail API',
       'EAT Scheduled Cron',
     ],
-    coverImage: '/images/projects/email-analyzer-cover.svg',
-    gallery: ['/images/projects/email-analyzer-cover.svg'],
+    coverImage: '/images/projects/email-analyzer-cover.png',
+    gallery: ['/images/projects/email-analyzer-cover.png'],
     altText:
       'Email Analyzer pipeline architecture showing Google Apps Script, Node.js, and Gemini 1.5 Flash scheduled EAT daily academic inbox digest',
     repositoryUrl: 'https://github.com/GObwocha/Email-Analyzer',
@@ -338,11 +338,12 @@ export const projects: readonly Project[] = [
       'WhatsApp Booking Engine',
       'Hospitality SEO',
     ],
-    coverImage: '/images/projects/ole-ken-hotel-cover.svg',
-    gallery: ['/images/projects/ole-ken-hotel-cover.svg'],
+    coverImage: '/images/projects/ole-ken-hotel-cover.png',
+    gallery: ['/images/projects/ole-ken-hotel-cover.png'],
     altText:
       'The Ole~Ken Hotel hospitality website redesign in Next.js 14 showing luxury suite showcase and direct WhatsApp concierge booking flow',
     liveUrl: 'https://the-ole-ken-hotel-revamp-rebsite.vercel.app/',
+    repositoryUrl: 'https://github.com/GObwocha/The-Ole-Ken-Hotel-Revamp-Website',
     referenceUrl: 'https://www.theolekenhotel.co.ke/',
     publishedAt: '2024-09-25',
     featured: false,
