@@ -12,12 +12,15 @@ async function prerender() {
   const template = await fs.readFile(templatePath, 'utf-8');
 
   const serverEntryUrl = pathToFileURL(path.join(ssrDir, 'entry-server.js')).href;
-  const { render } = await import(serverEntryUrl);
+  const { render, getPrerenderRoutes, generateSitemapXml } = await import(serverEntryUrl);
 
-  const routes = [
-    { url: '/', outputPath: 'index.html' },
-    { url: '/404', outputPath: '404.html' },
-  ];
+  const routes =
+    typeof getPrerenderRoutes === 'function'
+      ? getPrerenderRoutes()
+      : [
+          { url: '/', outputPath: 'index.html' },
+          { url: '/404', outputPath: '404.html' },
+        ];
 
   for (const route of routes) {
     const { html, head } = render(route.url);
@@ -26,6 +29,11 @@ async function prerender() {
     const targetPath = path.join(distDir, route.outputPath);
     await fs.mkdir(path.dirname(targetPath), { recursive: true });
     await fs.writeFile(targetPath, renderedPage, 'utf-8');
+  }
+
+  if (typeof generateSitemapXml === 'function') {
+    const sitemapXml = generateSitemapXml();
+    await fs.writeFile(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
   }
 
   await fs.rm(ssrDir, { recursive: true, force: true });

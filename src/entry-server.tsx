@@ -2,10 +2,18 @@ import { StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { App } from './app/App';
+import {
+  generateSitemapXml,
+  getPrerenderRoutes,
+  resolveRouteMetadata,
+  serializeHeadTags,
+} from './components/seo/seo';
+import type { RouteMetadata } from './types/seo';
 
 export interface RenderResult {
   html: string;
   head: string;
+  metadata: RouteMetadata;
 }
 
 export function render(url: string): RenderResult {
@@ -17,18 +25,10 @@ export function render(url: string): RenderResult {
     </StrictMode>,
   );
 
-  const isNotFound = url === '/404';
-  const title = isNotFound
-    ? 'Page Not Found | Geoffrey Obwocha'
-    : 'Geoffrey Obwocha — Systems Architect & Full-Stack Product Engineer';
-  const description = isNotFound
-    ? 'The requested page could not be found.'
-    : 'Production portfolio of Geoffrey Obwocha — Systems Architect & Full-Stack Product Engineer.';
+  const metadata = resolveRouteMetadata(url);
+  const head = serializeHeadTags(metadata);
 
-  const head = [
-    `<title>${title}</title>`,
-    `<meta name="description" content="${description}" />`,
-  ].join('\n    ');
-
-  return { html, head };
+  return { html, head, metadata };
 }
+
+export { generateSitemapXml, getPrerenderRoutes, resolveRouteMetadata, serializeHeadTags };

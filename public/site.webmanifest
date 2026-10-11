@@ -1,0 +1,17 @@
+{
+  "name": "Geoffrey Obwocha — Systems Architect & Full-Stack Product Engineer",
+  "short_name": "GObwocha",
+  "description": "Production portfolio of Geoffrey Obwocha — Systems Architect & Full-Stack Product Engineer based in Nairobi, Kenya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A09",
+  "theme_color": "#0A0A09",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
