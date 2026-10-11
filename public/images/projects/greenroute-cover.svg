@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="GreenRoute Carbon-Aware Eco-Routing Engine for Nairobi">
+  <rect width="800" height="500" fill="#0A0A09" />
+
+  <!-- Spatial Coordinate Grid -->
+  <g stroke="#121210" stroke-width="1">
+    <line x1="100" y1="64" x2="100" y2="444" />
+    <line x1="220" y1="64" x2="220" y2="444" />
+    <line x1="340" y1="64" x2="340" y2="444" />
+    <line x1="460" y1="64" x2="460" y2="444" />
+    <line x1="580" y1="64" x2="580" y2="444" />
+    <line x1="700" y1="64" x2="700" y2="444" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="230" x2="800" y2="230" />
+    <line x1="0" y1="320" x2="800" y2="320" />
+  </g>
+
+  <g stroke="#262522" stroke-width="1">
+    <line x1="0" y1="64" x2="800" y2="64" />
+    <line x1="0" y1="376" x2="800" y2="376" />
+    <line x1="0" y1="444" x2="800" y2="444" />
+  </g>
+
+  <!-- Header -->
+  <text x="32" y="40" fill="#FF4D1C" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">SYS // 02 — GREENROUTE NAIROBI ECO-ROUTING ENGINE</text>
+  <text x="535" y="40" fill="#B8B3A8" font-family="monospace" font-size="12" letter-spacing="1.5">1.2864° S, 36.8172° E</text>
+
+  <!-- Background NetworkX Graph Edges -->
+  <g stroke="#262522" stroke-width="1.5" fill="none">
+    <path d="M110 290 L210 170 L360 135 L510 165 L680 150" />
+    <path d="M110 290 L250 310 L420 295 L575 265 L680 150" />
+    <path d="M210 170 L250 310 M360 135 L400 225 L420 295 M510 165 L575 265" />
+  </g>
+
+  <!-- Candidate Path A: Standard Fastest Distance (High Elevation / Congestion Penalty) -->
+  <path d="M110 290 L210 170 L360 135 L510 165 L680 150" stroke="#B8B3A8" stroke-width="2.5" stroke-dasharray="6 6" fill="none" />
+
+  <!-- Candidate Path B: Eco-Weighted A* Corridor (Optimal Grade & Emission Profile) -->
+  <path d="M110 290 L235 245 L400 225 L555 200 L680 150" stroke="#FF4D1C" stroke-width="4" fill="none" />
+
+  <!-- Graph Nodes -->
+  <g fill="#0A0A09" stroke="#F5F3EE" stroke-width="2">
+    <circle cx="110" cy="290" r="7" />
+    <circle cx="210" cy="170" r="5" stroke="#B8B3A8" />
+    <circle cx="360" cy="135" r="5" stroke="#B8B3A8" />
+    <circle cx="510" cy="165" r="5" stroke="#B8B3A8" />
+  </g>
+
+  <g fill="#FF4D1C" stroke="#0A0A09" stroke-width="2">
+    <circle cx="235" cy="245" r="6" />
+    <circle cx="400" cy="225" r="6" />
+    <circle cx="555" cy="200" r="6" />
+    <circle cx="680" cy="150" r="8" />
+  </g>
+
+  <!-- Node Labels -->
+  <text x="76" y="318" fill="#F5F3EE" font-family="monospace" font-size="11" font-weight="700">ORIGIN: WESTLANDS</text>
+  <text x="275" y="118" fill="#B8B3A8" font-family="monospace" font-size="11">STD PATH // +4.2% GRADE</text>
+  <text x="355" y="254" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">A* ECO CORRIDOR // -24% CO2e</text>
+  <text x="580" y="130" fill="#F5F3EE" font-family="monospace" font-size="11" font-weight="700">DEST: NAIROBI CBD</text>
+
+  <!-- Telemetry Panel Row -->
+  <g transform="translate(32, 388)">
+    <text x="0" y="18" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">GRAPH ENGINE</text>
+    <text x="0" y="38" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="600">nairobi_eco_map.graphml (OSMnx + NetworkX A*)</text>
+
+    <text x="330" y="18" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">LIVE TELEMETRY FEEDS</text>
+    <text x="330" y="38" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="600">TomTom Traffic + Open-Elevation + Photon</text>
+
+    <rect x="618" y="4" width="118" height="40" rx="3" fill="#121210" stroke="#FF4D1C" />
+    <text x="632" y="21" fill="#B8B3A8" font-family="monospace" font-size="10">CO2 DELTA</text>
+    <text x="632" y="37" fill="#FF4D1C" font-family="monospace" font-size="13" font-weight="700">-310g / TRIP</text>
+  </g>
+
+  <text x="32" y="476" fill="#B8B3A8" font-family="monospace" font-size="11">STACK: DJANGO 5 · PYTHON · OSMNX · NETWORKX A* · LEAFLET.JS · TOMTOM API</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Halisi AI Brand Impersonation and M-Pesa Fraud Detection Architecture">
+  <rect width="800" height="500" fill="#0A0A09" />
+  <g stroke="#262522" stroke-width="1">
+    <line x1="0" y1="64" x2="800" y2="64" />
+    <line x1="0" y1="444" x2="800" y2="444" />
+    <line x1="250" y1="64" x2="250" y2="444" />
+    <line x1="550" y1="64" x2="550" y2="444" />
+  </g>
+
+  <!-- Header Bar -->
+  <text x="32" y="40" fill="#FF4D1C" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">SYS // 01 — HALISI THREAT DETECTION ENGINE</text>
+  <text x="560" y="40" fill="#B8B3A8" font-family="monospace" font-size="12" letter-spacing="1.5">CHIROMO TECH CLUB · UON</text>
+
+  <!-- Left Column: Multi-Channel Ingestion -->
+  <text x="32" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">01 / INGESTION VECTORS</text>
+
+  <g transform="translate(32, 116)">
+    <rect width="186" height="62" rx="3" fill="#121210" stroke="#262522" />
+    <rect width="4" height="62" fill="#FF4D1C" />
+    <text x="16" y="26" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Safaricom Daraja API</text>
+    <text x="16" y="46" fill="#B8B3A8" font-family="monospace" font-size="11">M-Pesa Paybill / STK Check</text>
+  </g>
+
+  <g transform="translate(32, 194)">
+    <rect width="186" height="62" rx="3" fill="#121210" stroke="#262522" />
+    <rect width="4" height="62" fill="#FF4D1C" />
+    <text x="16" y="26" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Africa&apos;s Talking API</text>
+    <text x="16" y="46" fill="#B8B3A8" font-family="monospace" font-size="11">USSD *384# &amp; SMS Gateway</text>
+  </g>
+
+  <g transform="translate(32, 272)">
+    <rect width="186" height="62" rx="3" fill="#121210" stroke="#262522" />
+    <rect width="4" height="62" fill="#B8B3A8" />
+    <text x="16" y="26" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Playwright Crawler</text>
+    <text x="16" y="46" fill="#B8B3A8" font-family="monospace" font-size="11">Lookalike Domain Scraper</text>
+  </g>
+
+  <g transform="translate(32, 350)">
+    <rect width="186" height="62" rx="3" fill="#121210" stroke="#262522" />
+    <rect width="4" height="62" fill="#B8B3A8" />
+    <text x="16" y="26" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Telegram Bot Stream</text>
+    <text x="16" y="46" fill="#B8B3A8" font-family="monospace" font-size="11">Real-Time Scam Reporting</text>
+  </g>
+
+  <!-- Center Column: AI & Vector Core -->
+  <text x="278" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">02 / FASTAPI + AI VERIFICATION CORE</text>
+
+  <g transform="translate(278, 116)">
+    <rect width="244" height="136" rx="4" fill="#121210" stroke="#FF4D1C" stroke-width="1.5" />
+    <text x="18" y="28" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">VISUAL IMPERSONATION ENGINE</text>
+    <text x="18" y="54" fill="#F5F3EE" font-family="sans-serif" font-size="15" font-weight="700">CLIP ViT-B-32 + pgvector</text>
+    <text x="18" y="78" fill="#B8B3A8" font-family="monospace" font-size="11">512-Dim Cosine Similarity</text>
+    <text x="18" y="98" fill="#B8B3A8" font-family="monospace" font-size="11">Supabase HNSW Vector Index</text>
+    <rect x="18" y="110" width="208" height="8" rx="2" fill="#262522" />
+    <rect x="18" y="110" width="184" height="8" rx="2" fill="#FF4D1C" />
+  </g>
+
+  <g transform="translate(278, 276)">
+    <rect width="244" height="136" rx="4" fill="#121210" stroke="#262522" stroke-width="1.5" />
+    <text x="18" y="28" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">SEMANTIC THREAT CLASSIFIER</text>
+    <text x="18" y="54" fill="#F5F3EE" font-family="sans-serif" font-size="15" font-weight="700">NVIDIA NIM Llama 3.1 8B</text>
+    <text x="18" y="78" fill="#B8B3A8" font-family="monospace" font-size="11">M-Pesa Social-Engineering NLP</text>
+    <text x="18" y="98" fill="#B8B3A8" font-family="monospace" font-size="11">Heuristic Domain &amp; Handle Diff</text>
+    <rect x="18" y="110" width="208" height="8" rx="2" fill="#262522" />
+    <rect x="18" y="110" width="196" height="8" rx="2" fill="#F5F3EE" />
+  </g>
+
+  <!-- Connector Paths -->
+  <g stroke="#FF4D1C" stroke-width="1.5" fill="none">
+    <path d="M218 147 L278 165" />
+    <path d="M218 225 L278 205" />
+    <path d="M218 303 L278 325" />
+    <path d="M218 381 L278 365" />
+    <path d="M522 184 L576 220" />
+    <path d="M522 344 L576 280" />
+  </g>
+
+  <!-- Right Column: Verdict Output -->
+  <text x="576" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">03 / RISK TELEMETRY</text>
+
+  <g transform="translate(576, 146)">
+    <rect width="192" height="216" rx="4" fill="#121210" stroke="#FF4D1C" stroke-width="1.5" />
+    <rect x="16" y="18" width="160" height="26" rx="2" fill="#FF4D1C" />
+    <text x="26" y="35" fill="#0A0A09" font-family="monospace" font-size="11" font-weight="700">HIGH RISK // SPOOFED</text>
+    <text x="16" y="72" fill="#F5F3EE" font-family="monospace" font-size="12">SCORE: 0.98 / 1.00</text>
+    <text x="16" y="98" fill="#B8B3A8" font-family="monospace" font-size="11">• Lookalike Handle</text>
+    <text x="16" y="120" fill="#B8B3A8" font-family="monospace" font-size="11">• Logo Vector Match</text>
+    <text x="16" y="142" fill="#B8B3A8" font-family="monospace" font-size="11">• Unverified Till ID</text>
+    <line x1="16" y1="162" x2="176" y2="162" stroke="#262522" />
+    <text x="16" y="186" fill="#F5F3EE" font-family="monospace" font-size="11">ALERT DISPATCHED</text>
+    <text x="16" y="202" fill="#FF4D1C" font-family="monospace" font-size="10">SMS + DASHBOARD SYNC</text>
+  </g>
+
+  <!-- Footer Status -->
+  <text x="32" y="476" fill="#B8B3A8" font-family="monospace" font-size="11">STACK: FASTAPI · SUPABASE PGVECTOR · CLIP VIT-B-32 · LLAMA 3.1 8B · DARAJA API</text>
+</svg>

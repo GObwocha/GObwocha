@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="SomaStar Adaptive Learning and AI Exam Intelligence Platform">
+  <rect width="800" height="500" fill="#0A0A09" />
+  <g stroke="#262522" stroke-width="1">
+    <line x1="0" y1="64" x2="800" y2="64" />
+    <line x1="0" y1="444" x2="800" y2="444" />
+    <line x1="330" y1="64" x2="330" y2="444" />
+  </g>
+
+  <!-- Header -->
+  <text x="32" y="40" fill="#FF4D1C" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">SYS // 04 — SOMASTAR ADAPTIVE EXAM INTELLIGENCE</text>
+  <text x="530" y="40" fill="#B8B3A8" font-family="monospace" font-size="12" letter-spacing="1.5">REACT 19 · FASTAPI · SQLALCHEMY 2.0</text>
+
+  <!-- Left Column: FastAPI + SQLAlchemy 2.0 Assessment Pipeline -->
+  <text x="32" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">01 / ASSESSMENT &amp; ATTEMPT SCHEMA</text>
+
+  <g transform="translate(32, 114)">
+    <rect width="268" height="94" rx="4" fill="#121210" stroke="#262522" />
+    <text x="16" y="26" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">CURRICULUM GRAPH</text>
+    <text x="16" y="50" fill="#F5F3EE" font-family="sans-serif" font-size="14" font-weight="700">Courses → Topics → Question Bank</text>
+    <text x="16" y="74" fill="#B8B3A8" font-family="monospace" font-size="11">SQLAlchemy 2.0 Async ORM</text>
+  </g>
+
+  <g transform="translate(32, 224)">
+    <rect width="268" height="94" rx="4" fill="#121210" stroke="#FF4D1C" stroke-width="1.5" />
+    <text x="16" y="26" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">DIAGNOSTIC GRADING ENGINE</text>
+    <text x="16" y="50" fill="#F5F3EE" font-family="sans-serif" font-size="14" font-weight="700">Active Recall &amp; Error Tagging</text>
+    <text x="16" y="74" fill="#B8B3A8" font-family="monospace" font-size="11">Pydantic v2 Schema Validation</text>
+  </g>
+
+  <g transform="translate(32, 334)">
+    <rect width="268" height="84" rx="4" fill="#121210" stroke="#262522" />
+    <text x="16" y="26" fill="#B8B3A8" font-family="monospace" font-size="11" font-weight="700">REVISION RECOMMENDER</text>
+    <text x="16" y="50" fill="#F5F3EE" font-family="sans-serif" font-size="14" font-weight="700">Targeted Weak-Topic Drills</text>
+    <text x="16" y="70" fill="#FF4D1C" font-family="monospace" font-size="11">NEXT SESSION: GRAPH ALGORITHMS</text>
+  </g>
+
+  <!-- Right Column: Recharts Mastery Telemetry -->
+  <text x="360" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">02 / RECHARTS TOPIC MASTERY TELEMETRY</text>
+
+  <g transform="translate(360, 114)">
+    <rect width="408" height="304" rx="4" fill="#121210" stroke="#262522" />
+    <text x="24" y="32" fill="#F5F3EE" font-family="sans-serif" font-size="15" font-weight="700">Learner Mastery Progression by Domain</text>
+    <text x="24" y="52" fill="#B8B3A8" font-family="monospace" font-size="11">CO-ENGINEERED WITH EMMANUEL MAKORI OBIERO</text>
+
+    <!-- Bar 1 -->
+    <text x="24" y="92" fill="#F5F3EE" font-family="monospace" font-size="11">DATA STRUCTURES &amp; ALGORITHMS</text>
+    <text x="348" y="92" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">92%</text>
+    <rect x="24" y="100" width="360" height="12" rx="2" fill="#262522" />
+    <rect x="24" y="100" width="331" height="12" rx="2" fill="#FF4D1C" />
+
+    <!-- Bar 2 -->
+    <text x="24" y="142" fill="#F5F3EE" font-family="monospace" font-size="11">DISTRIBUTED SYSTEMS &amp; NETWORKS</text>
+    <text x="348" y="142" fill="#F5F3EE" font-family="monospace" font-size="11" font-weight="700">84%</text>
+    <rect x="24" y="150" width="360" height="12" rx="2" fill="#262522" />
+    <rect x="24" y="150" width="302" height="12" rx="2" fill="#F5F3EE" />
+
+    <!-- Bar 3 -->
+    <text x="24" y="192" fill="#F5F3EE" font-family="monospace" font-size="11">RELATIONAL DATABASE NORMALIZATION</text>
+    <text x="348" y="192" fill="#F5F3EE" font-family="monospace" font-size="11" font-weight="700">88%</text>
+    <rect x="24" y="200" width="360" height="12" rx="2" fill="#262522" />
+    <rect x="24" y="200" width="316" height="12" rx="2" fill="#F5F3EE" />
+
+    <!-- Bar 4 -->
+    <text x="24" y="242" fill="#F5F3EE" font-family="monospace" font-size="11">DYNAMIC PROGRAMMING (FOCUS AREA)</text>
+    <text x="348" y="242" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">68%</text>
+    <rect x="24" y="250" width="360" height="12" rx="2" fill="#262522" />
+    <rect x="24" y="250" width="244" height="12" rx="2" fill="#B8B3A8" />
+  </g>
+
+  <text x="32" y="476" fill="#B8B3A8" font-family="monospace" font-size="11">STACK: REACT 19 · TYPESCRIPT · FASTAPI · SQLALCHEMY 2.0 · RECHARTS · TAILWIND CSS</text>
+</svg>

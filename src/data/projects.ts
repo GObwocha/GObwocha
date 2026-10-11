@@ -7,9 +7,9 @@ export const projects: readonly Project[] = [
     subtitle: 'AI-Powered Brand Impersonation & M-Pesa Fraud Detection',
     category: 'Cybersecurity · AI · Kenyan Fintech',
     summary:
-      'A multi-layered threat-detection platform built to identify brand impersonation, fraudulent social media accounts, and M-Pesa social-engineering scams targeting Kenyan consumers and businesses.',
+      'A multi-layered threat-detection platform built with FastAPI, Supabase pgvector, CLIP ViT-B-32, and NVIDIA NIM Llama 3.1 8B to identify brand impersonation, spoofed social accounts, and M-Pesa social-engineering scams across Kenya.',
     problem:
-      'Across Kenya’s mobile-money economy, attackers frequently impersonate trusted banks, telecom operators, and retail brands using lookalike domains, spoofed social media handles, and deceptive M-Pesa payment prompts. Consumers and brand security teams lacked an integrated verification engine geared toward local scam patterns.',
+      'Across Kenya’s mobile-money economy, attackers frequently impersonate trusted banks, telecom operators, and retail brands using lookalike domains, cloned brand logos, spoofed social media handles, and deceptive M-Pesa paybill/till prompts. Consumers and brand security teams lacked an integrated verification engine geared toward local scam patterns and accessible on both web and USSD.',
     role: 'Co-Engineer — Detection Pipeline, Backend Verification Services & Full-Stack Integration',
     organization: 'Chiromo Tech Club, University of Nairobi',
     teammates: [
@@ -31,36 +31,41 @@ export const projects: readonly Project[] = [
       },
     ],
     process: [
-      'Analyzed common East African phishing vectors, lookalike domain registrations, and fraudulent M-Pesa till/paybill social-engineering scripts.',
-      'Architected a multi-signal verification pipeline combining deterministic heuristic checks with LLM-assisted semantic analysis of suspicious messages and URLs.',
-      'Built an interactive verification dashboard enabling users and brand teams to inspect risk signals, impersonation indicators, and actionable safety guidance.',
+      'Engineered an asynchronous Playwright headless crawler and ingestion pipeline to capture suspect domains, social profiles, and visual brand assets.',
+      'Implemented 512-dimensional visual logo and layout similarity indexing in Supabase PostgreSQL using pgvector HNSW indexes and CLIP ViT-B-32 embeddings alongside NVIDIA NIM Llama 3.1 8B semantic scam classification.',
+      'Integrated Safaricom Daraja API verification checks, Africa’s Talking USSD/SMS alerting, and a Python Telegram Bot interface with a React and TypeScript security dashboard.',
     ],
     solution:
-      'Halisi pairs domain and handle similarity heuristics with AI-driven message classification to flag brand impersonation and M-Pesa scam attempts in real time, presenting clear risk explanations rather than opaque scores.',
+      'Halisi combines CLIP ViT-B-32 vector similarity search, NVIDIA NIM Llama 3.1 8B natural-language threat analysis, and Safaricom Daraja / Africa’s Talking telecom integrations to detect brand impersonation and M-Pesa fraud in real time.',
     outcomes: [
-      'Delivered an end-to-end fraud detection and brand verification prototype developed collaboratively with the Chiromo Tech Club at the University of Nairobi.',
-      'Unified URL reputation checks, handle impersonation detection, and M-Pesa scam message analysis into a single workflow.',
-      'Structured modular verification endpoints so new regional scam signatures can be added without re-architecting the frontend.',
+      'Delivered an end-to-end fraud detection and brand verification platform developed collaboratively with the Chiromo Tech Club at the University of Nairobi.',
+      'Unified Playwright web scraping, Supabase pgvector visual matching, Llama 3.1 8B scam analysis, and multi-channel alerting (Web, SMS, USSD, Telegram) into a cohesive FastAPI architecture.',
+      'Structured modular verification endpoints so regional M-Pesa scam signatures and brand fingerprints can be indexed without re-architecting client workflows.',
     ],
     technologies: [
       'Python',
       'FastAPI',
-      'TypeScript',
+      'Supabase pgvector',
+      'CLIP ViT-B-32',
+      'NVIDIA NIM Llama 3.1 8B',
+      'Safaricom Daraja API',
+      "Africa's Talking USSD/SMS",
+      'Telegram Bot API',
+      'Playwright',
       'React',
-      'Google Gemini API',
-      'M-Pesa Fraud Heuristics',
+      'TypeScript',
       'Tailwind CSS',
     ],
     coverImage: '/images/projects/halisi-app-cover.svg',
     gallery: ['/images/projects/halisi-app-cover.svg'],
     altText:
-      'Halisi fraud detection interface showing brand impersonation risk analysis and M-Pesa scam verification signals',
+      'Halisi architecture diagram showing FastAPI, Supabase pgvector CLIP ViT-B-32 visual matching, NVIDIA NIM Llama 3.1 8B classification, and Safaricom Daraja / Africa’s Talking channels',
     repositoryUrl: 'https://github.com/sigangandegwa/HalisiApp',
     publishedAt: '2025-02-15',
     featured: true,
     seoTitle: 'Halisi — AI Brand Impersonation & M-Pesa Fraud Detection | Geoffrey Obwocha',
     seoDescription:
-      'Case study of Halisi, an AI-powered brand impersonation and M-Pesa fraud detection platform built with Collins Kimanzi, Ndegwa Waudo, and Dennis Kuria at the University of Nairobi.',
+      'Case study of Halisi, an AI-powered brand impersonation and M-Pesa fraud detection platform built with FastAPI, Supabase pgvector, CLIP ViT-B-32, and Llama 3.1 8B at the University of Nairobi.',
     ogImage: '/og/projects/halisi-app.png',
   },
   {
@@ -69,9 +74,9 @@ export const projects: readonly Project[] = [
     subtitle: 'Eco-Routing & Carbon-Aware Navigation Engine for Nairobi',
     category: 'Geospatial Systems · Climate Tech · Routing Algorithms',
     summary:
-      'A geospatial routing and emissions-telemetry application that computes fuel- and carbon-conscious travel corridors across Nairobi alongside conventional fastest-path navigation.',
+      'A geospatial routing and emissions-telemetry engine built with Django, OSMnx, and NetworkX A* search over nairobi_eco_map.graphml that computes fuel- and carbon-conscious corridors across Nairobi.',
     problem:
-      'Standard navigation tools optimize exclusively for raw distance or theoretical free-flow speed, ignoring congestion-induced idling and steep elevation or corridor penalties that inflate fuel burn and urban tailpipe emissions in Nairobi.',
+      'Standard navigation tools optimize exclusively for raw distance or theoretical free-flow speed, ignoring steep road grade penalties and congestion-induced idling that inflate fuel burn and urban tailpipe CO2 emissions across Nairobi.',
     role: 'Lead & Co-Engineer — Geospatial Routing Integration, Emissions Calculation & Map UI',
     teammates: [
       {
@@ -88,36 +93,39 @@ export const projects: readonly Project[] = [
       },
     ],
     process: [
-      'Modeled Nairobi road network segments using OpenStreetMap data and OSRM routing profiles.',
-      'Implemented comparative route scoring that weighs distance, estimated travel duration, and projected CO2 output per vehicle profile.',
-      'Designed an interactive Leaflet map workspace displaying side-by-side eco-routes versus fastest routes with transparent carbon delta breakdowns.',
+      'Constructed a persistent Nairobi street network graph (nairobi_eco_map.graphml) using OSMnx and enriched edge weights with Open-Elevation grade profiles and live TomTom Traffic API congestion telemetry.',
+      'Implemented a custom NetworkX A* eco-weighted routing algorithm in Django that minimizes projected fuel burn and CO2 output rather than raw distance alone, paired with Photon (Komoot) geocoding.',
+      'Designed an interactive Leaflet.js map workspace displaying side-by-side eco-routes versus standard fastest routes with transparent carbon delta telemetry.',
     ],
     solution:
-      'GreenRoute surfaces alternative urban corridors and quantifies estimated carbon savings per trip, giving commuters and logistics operators actionable visibility into the environmental trade-offs of each route choice.',
+      'GreenRoute executes custom A* graph traversal over Nairobi’s road network to surface low-emission corridors and quantify per-trip carbon and fuel savings alongside conventional navigation paths.',
     outcomes: [
-      'Built an interactive multi-route comparison engine tailored to Nairobi road geometry and traffic corridors.',
-      'Delivered real-time visual telemetry comparing distance, estimated travel time, and projected carbon footprint across candidate paths.',
-      'Established a clean geospatial architecture separating routing graph queries from emissions estimation models.',
+      'Built an interactive multi-route comparison engine tailored to Nairobi road geometry, elevation gradients, and live traffic corridors.',
+      'Delivered real-time visual telemetry comparing distance, estimated travel duration, and projected CO2 footprint across candidate paths.',
+      'Established a clean geospatial architecture separating NetworkX graph traversal on nairobi_eco_map.graphml from external TomTom and Photon telemetry adapters.',
     ],
     technologies: [
-      'TypeScript',
-      'React',
       'Python',
-      'OpenStreetMap',
-      'Leaflet',
-      'OSRM Routing',
-      'Carbon Emission Modeling',
+      'Django',
+      'OSMnx',
+      'NetworkX A* Routing',
+      'nairobi_eco_map.graphml',
+      'TomTom Traffic API',
+      'Open-Elevation API',
+      'Photon Geocoding',
+      'Leaflet.js',
+      'JavaScript',
     ],
     coverImage: '/images/projects/greenroute-cover.svg',
     gallery: ['/images/projects/greenroute-cover.svg'],
     altText:
-      'GreenRoute geospatial map interface comparing carbon-aware eco-routes and standard routes across Nairobi',
+      'GreenRoute geospatial map architecture comparing NetworkX A* carbon-aware eco-routes and standard routes across Nairobi road segments',
     repositoryUrl: 'https://github.com/GObwocha/GreenRoute',
     publishedAt: '2025-01-20',
     featured: true,
     seoTitle: 'GreenRoute — Carbon-Aware Eco-Routing Engine for Nairobi | Geoffrey Obwocha',
     seoDescription:
-      'Case study of GreenRoute, a geospatial eco-routing and carbon-telemetry navigation engine for Nairobi built by Geoffrey Obwocha, Benson Mose, and Timothy Mwita.',
+      'Case study of GreenRoute, a Django, OSMnx, and NetworkX A* geospatial eco-routing engine for Nairobi built by Geoffrey Obwocha, Benson Mose, and Timothy Mwita.',
     ogImage: '/og/projects/greenroute.png',
   },
   {
@@ -126,41 +134,42 @@ export const projects: readonly Project[] = [
     subtitle: 'Interactive Kenyan Food Discovery & Culinary Platform',
     category: 'Full-Stack Web · Consumer Product · Cultural Discovery',
     summary:
-      'A visually rich culinary discovery web application celebrating Kenyan cuisine through editorial photography, curated regional dishes, and frictionless browsing.',
+      'A visually rich Kenyan culinary discovery and ordering application built with Next.js App Router and Supabase SSR Auth, featuring an interactive Craving Quiz and localized rider personas Boda Bob and Captain Chapati.',
     problem:
-      'East African culinary heritage is often underrepresented or fragmented across generic recipe aggregators that lack visual craft, regional context, and responsive mobile performance.',
-    role: 'Creator & Full-Stack Product Engineer — UI Architecture, Visual Design & Deployment',
+      'East African culinary heritage is often underrepresented or fragmented across generic food delivery apps that lack visual craft, cultural storytelling, and playful, mobile-first discovery.',
+    role: 'Creator & Full-Stack Product Engineer — Next.js Architecture, Supabase Auth & Visual Design',
     process: [
-      'Structured a strongly-typed catalog of Kenyan dishes with preparation context, ingredients, and cultural notes.',
-      'Engineered a responsive, image-first interface inspired by editorial food publications ("Kula Kwa Macho" — Swahili for "feasting with the eyes").',
-      'Optimized asset delivery, keyboard-accessible filtering, and instant client transitions deployed on Vercel.',
+      'Architected a Next.js App Router application with TypeScript and Supabase SSR cookie-based authentication (@supabase/ssr) for seamless session persistence across server and client components.',
+      'Engineered an interactive Craving Quiz that matches a visitor’s mood, spice tolerance, and texture preferences to curated Kenyan dishes ("Kula Kwa Macho" — Swahili for "feasting with the eyes").',
+      'Crafted a localized checkout and dispatch tracking experience featuring Kenyan delivery rider personas including Boda Bob and Captain Chapati, deployed on Vercel.',
     ],
     solution:
-      'Kula-Kwa-Macho pairs high-contrast editorial typography with fast, mobile-first dish exploration so visitors can discover, filter, and explore Kenyan culinary staples effortlessly.',
+      'Kula-Kwa-Macho pairs high-contrast editorial food presentation with an interactive Craving Quiz, Supabase SSR authentication, and culturally grounded Kenyan delivery workflows.',
     outcomes: [
       'Shipped and deployed a live production web application at kula-kwa-macho-zeta.vercel.app.',
-      'Engineered fluid responsive cards and category filters that maintain zero layout shift across mobile and desktop viewports.',
-      'Created a reusable data-driven template for showcasing regional African culinary content.',
+      'Engineered zero-CLS dish cards, interactive Craving Quiz filtering, and humorous Kenyan rider dispatch personas (Boda Bob & Captain Chapati).',
+      'Implemented secure cookie-backed Supabase SSR authentication and protected ordering flows across mobile and desktop viewports.',
     ],
     technologies: [
-      'React',
+      'Next.js App Router',
       'TypeScript',
-      'Vite',
+      'React',
+      'Supabase SSR Auth',
       'Tailwind CSS',
-      'Responsive UI Architecture',
+      'Craving Quiz Engine',
       'Vercel',
     ],
     coverImage: '/images/projects/kula-kwa-macho-cover.svg',
     gallery: ['/images/projects/kula-kwa-macho-cover.svg'],
     altText:
-      'Kula-Kwa-Macho Kenyan culinary discovery platform displaying curated local dishes and interactive filters',
+      'Kula-Kwa-Macho Kenyan culinary discovery platform showing Craving Quiz recommendations, Supabase SSR cart, and Boda Bob and Captain Chapati rider telemetry',
     liveUrl: 'https://kula-kwa-macho-zeta.vercel.app',
     repositoryUrl: 'https://github.com/GObwocha/Kula-Kwa-Macho',
     publishedAt: '2024-11-10',
     featured: true,
     seoTitle: 'Kula-Kwa-Macho — Interactive Kenyan Culinary Discovery Platform | Geoffrey Obwocha',
     seoDescription:
-      'Explore how Geoffrey Obwocha designed and built Kula-Kwa-Macho, an interactive Kenyan food discovery web platform deployed on Vercel.',
+      'Explore how Geoffrey Obwocha designed and built Kula-Kwa-Macho with Next.js App Router, Supabase SSR Auth, an interactive Craving Quiz, and localized Kenyan rider personas.',
     ogImage: '/og/projects/kula-kwa-macho.png',
   },
   {
@@ -169,9 +178,9 @@ export const projects: readonly Project[] = [
     subtitle: 'Adaptive Learning & AI Exam Intelligence Platform',
     category: 'EdTech · AI Assessment · Full-Stack Platform',
     summary:
-      'An adaptive study and exam-preparation platform that transforms curriculum materials into structured practice assessments, mastery tracking, and targeted revision feedback.',
+      'An adaptive study and exam-intelligence platform built with React 19, FastAPI, SQLAlchemy 2.0, and Recharts that transforms curriculum materials into diagnostic assessments and visual mastery analytics.',
     problem:
-      'Students preparing for rigorous university and national examinations often rely on static past papers without diagnostic feedback on which underlying concepts require reinforcement.',
+      'Students preparing for rigorous university and national examinations often rely on static past papers without diagnostic telemetry on which underlying topics require targeted reinforcement.',
     role: 'Co-Engineer — Assessment Workflows, Full-Stack Feature Engineering & Data Modeling',
     teammates: [
       {
@@ -182,35 +191,36 @@ export const projects: readonly Project[] = [
       },
     ],
     process: [
-      'Collaborated on the domain model for courses, topic hierarchies, question banks, and learner attempt histories.',
-      'Built interactive quiz and revision views that capture topic-level performance and surface targeted study recommendations.',
-      'Integrated AI-assisted question generation and explanation workflows with structured validation.',
+      'Collaborated on the relational domain model in FastAPI and SQLAlchemy 2.0 covering courses, topic hierarchies, question banks, and timestamped learner attempt histories.',
+      'Built interactive React 19 quiz and revision workflows with Recharts analytics dashboards that visualize topic-level mastery and historical exam performance.',
+      'Integrated structured question validation and diagnostic explanation pipelines to guide post-assessment revision.',
     ],
     solution:
-      'SomaStar turns passive reading into active recall by pairing curriculum-aligned practice sessions with immediate conceptual explanations and topic mastery progression.',
+      'SomaStar turns passive reading into active recall by pairing FastAPI + SQLAlchemy 2.0 assessment services with React 19 and Recharts mastery visualizations.',
     outcomes: [
-      'Co-engineered a modular full-stack learning platform supporting structured revision and adaptive question flows.',
-      'Implemented clear learner progress views that highlight weak topic areas after each assessment session.',
-      'Maintained strict separation between assessment grading logic and presentation components.',
+      'Co-engineered a modular full-stack learning platform supporting structured revision, timed practice exams, and adaptive question flows.',
+      'Implemented Recharts visual analytics views that pinpoint weak curriculum topics immediately after each assessment session.',
+      'Maintained strict separation between FastAPI/SQLAlchemy 2.0 grading persistence and React 19 presentation components.',
     ],
     technologies: [
+      'React 19',
       'TypeScript',
-      'React',
-      'Node.js',
-      'PostgreSQL',
-      'AI Assessment Pipelines',
+      'FastAPI',
+      'SQLAlchemy 2.0',
+      'Python',
+      'Recharts',
       'Tailwind CSS',
     ],
     coverImage: '/images/projects/somastar-cover.svg',
     gallery: ['/images/projects/somastar-cover.svg'],
     altText:
-      'SomaStar adaptive learning interface showing topic mastery analytics and interactive exam preparation',
+      'SomaStar adaptive learning interface showing React 19 and Recharts topic mastery analytics backed by FastAPI and SQLAlchemy 2.0',
     repositoryUrl: 'https://github.com/Emmanuel-Makori-Obiero/somastar',
     publishedAt: '2025-01-05',
     featured: true,
     seoTitle: 'SomaStar — Adaptive Learning & AI Exam Intelligence Platform | Geoffrey Obwocha',
     seoDescription:
-      'Case study of SomaStar, an adaptive learning and AI exam intelligence platform co-engineered by Geoffrey Obwocha and Emmanuel Makori Obiero.',
+      'Case study of SomaStar, a React 19, FastAPI, SQLAlchemy 2.0, and Recharts adaptive exam intelligence platform co-engineered by Geoffrey Obwocha and Emmanuel Makori Obiero.',
     ogImage: '/og/projects/somastar.png',
   },
   {
@@ -219,20 +229,20 @@ export const projects: readonly Project[] = [
     subtitle: 'Multi-Role AI Educational Diagnostic & Socratic Tutoring Portal',
     category: 'EdTech · Multimodal AI · Vue 3 Architecture',
     summary:
-      'A role-based educational platform built with Vue 3 and Gemini Vision that combines rubric-aligned assignment diagnostics for educators with a Bloom’s Taxonomy Socratic tutor for learners.',
+      'A role-based educational platform built with Vue 3, Vuetify 3, Pinia, and Google Gemini Vision that combines rubric-aligned coursework diagnostics for educators with a Bloom’s Taxonomy Socratic tutor for learners.',
     problem:
       'Generic AI chat interfaces often hand students direct answers—undermining genuine comprehension—while teachers spend hours manually grading handwritten or uploaded coursework against multi-criteria rubrics.',
     role: 'Lead Architect & Full-Stack Engineer — Vue 3 Frontend, Pinia State & Gemini Vision Prompts',
     process: [
-      'Architected distinct role portals (Student, Educator, Administrator) using Vue 3 Composition API, TypeScript, Pinia, and Vuetify 3.',
-      'Engineered a multimodal Gemini Vision grading pipeline that evaluates uploaded student work against structured rubric criteria.',
-      'Designed a Socratic tutoring state machine grounded in Bloom’s Taxonomy (Remember, Understand, Apply, Analyze, Evaluate, Create) that guides students via questions rather than spoiling solutions.',
+      'Architected distinct role portals (Student, Educator, Administrator) using Vue 3 Composition API, TypeScript, Pinia state stores, and Vuetify 3 components.',
+      'Engineered a multimodal Google Gemini Vision rubric grading pipeline that evaluates uploaded student coursework against structured educator criteria.',
+      'Designed a Socratic tutoring state machine grounded in Bloom’s Taxonomy (Remember, Understand, Apply, Analyze, Evaluate, Create) that guides learners through probing questions rather than spoiling solutions.',
     ],
     solution:
-      'GeliScope empowers teachers with structured AI rubric diagnostics while giving students a guided Socratic dialogue engine that builds deep conceptual mastery step by step.',
+      'GeliScope empowers teachers with structured Gemini Vision rubric diagnostics while giving students a guardrailed Bloom’s Taxonomy Socratic dialogue engine in Vue 3 and Vuetify 3.',
     outcomes: [
-      'Delivered a multi-role Vue 3 + TypeScript educational portal with dedicated workflows for instructors and learners.',
-      'Implemented structured JSON schema validation for Gemini Vision rubric evaluations and Bloom’s Taxonomy progression.',
+      'Delivered a multi-role Vue 3 + Vuetify 3 + Pinia educational portal with dedicated workflows for instructors, learners, and administrators.',
+      'Implemented structured JSON schema validation for Gemini Vision rubric evaluations and 6-tier Bloom’s Taxonomy cognitive progression.',
       'Prevented direct answer leakage in student tutoring sessions through guardrailed Socratic prompt orchestration.',
     ],
     technologies: [
@@ -246,12 +256,12 @@ export const projects: readonly Project[] = [
     coverImage: '/images/projects/geliscope-cover.svg',
     gallery: ['/images/projects/geliscope-cover.svg'],
     altText:
-      'GeliScope educational portal showing multimodal rubric grading and Socratic tutoring stages across Bloom’s Taxonomy',
+      'GeliScope Vue 3 and Vuetify 3 educational portal showing Gemini Vision rubric grading and Bloom’s Taxonomy Socratic tutoring stages',
     publishedAt: '2024-12-01',
     featured: false,
     seoTitle: 'GeliScope — AI Educational Diagnostic & Socratic Tutoring Portal | Geoffrey Obwocha',
     seoDescription:
-      'Case study of GeliScope, a Vue 3, TypeScript, and Gemini Vision educational platform featuring rubric-based grading and Bloom’s Taxonomy Socratic tutoring.',
+      'Case study of GeliScope, a Vue 3, Vuetify 3, Pinia, and Gemini Vision educational platform featuring rubric-based grading and Bloom’s Taxonomy Socratic tutoring.',
     ogImage: '/og/projects/geliscope.png',
   },
   {
@@ -260,20 +270,20 @@ export const projects: readonly Project[] = [
     subtitle: 'Automated AI Academic Inbox Digest Pipeline',
     category: 'Workflow Automation · LLM Pipelines · Developer Tooling',
     summary:
-      'An automated inbox triage and digest pipeline running on Google Apps Script, Node.js, and Gemini 1.5 Flash that distills high-volume university email threads into prioritized daily action summaries.',
+      'An automated inbox triage and scheduled EAT daily digest pipeline built with Google Apps Script, Node.js, and Gemini 1.5 Flash that distills high-volume university email threads into prioritized action summaries.',
     problem:
       'University of Nairobi students and academic club coordinators receive dozens of daily circulars, timetable revisions, scholarship notices, and project threads—making it easy to miss time-sensitive deadlines buried in long email bodies.',
     role: 'Creator & Systems Engineer — Pipeline Architecture, Apps Script Automation & Gemini Integration',
     process: [
-      'Built a scheduled Google Apps Script and Node.js ingestion workflow that securely queries unread academic and organizational threads.',
+      'Built a scheduled Google Apps Script and Node.js ingestion workflow that securely queries unread academic and organizational Gmail threads on an East Africa Time (EAT / UTC+3) cron trigger.',
       'Engineered structured Gemini 1.5 Flash extraction prompts to classify emails by urgency, extract concrete deadlines, and summarize required actions.',
-      'Formatted the synthesized output into a scannable daily digest delivered automatically on a cron schedule.',
+      'Implemented deterministic rate-limit backoff and malformed-payload fallback handling before dispatching the daily executive briefing.',
     ],
     solution:
-      'Email Analyzer runs zero-maintenance in the background, converting noisy academic inbox traffic into a concise, deadline-first executive briefing.',
+      'Email Analyzer runs zero-maintenance in the background on a scheduled EAT trigger, converting noisy academic inbox traffic into a concise, deadline-first daily digest powered by Gemini 1.5 Flash.',
     outcomes: [
-      'Automated daily inbox classification and deadline extraction with zero manual copy-pasting.',
-      'Engineered deterministic fallback handling for rate limits and malformed email payloads.',
+      'Automated daily East Africa Time (EAT) inbox classification and deadline extraction with zero manual copy-pasting.',
+      'Engineered deterministic fallback handling for API rate limits and malformed email bodies across Google Apps Script and Node.js.',
       'Published the open-source automation pipeline and setup documentation on GitHub.',
     ],
     technologies: [
@@ -282,18 +292,18 @@ export const projects: readonly Project[] = [
       'JavaScript',
       'Gemini 1.5 Flash',
       'Gmail API',
-      'Scheduled Automation',
+      'EAT Scheduled Cron',
     ],
     coverImage: '/images/projects/email-analyzer-cover.svg',
     gallery: ['/images/projects/email-analyzer-cover.svg'],
     altText:
-      'Email Analyzer pipeline diagram and automated daily academic inbox digest with extracted deadlines',
+      'Email Analyzer pipeline architecture showing Google Apps Script, Node.js, and Gemini 1.5 Flash scheduled EAT daily academic inbox digest',
     repositoryUrl: 'https://github.com/GObwocha/Email-Analyzer',
     publishedAt: '2024-10-18',
     featured: false,
     seoTitle: 'Email Analyzer — Automated AI Academic Inbox Digest Pipeline | Geoffrey Obwocha',
     seoDescription:
-      'How Geoffrey Obwocha built Email Analyzer, an automated Google Apps Script, Node.js, and Gemini 1.5 Flash pipeline for triaging university inbox deadlines.',
+      'How Geoffrey Obwocha built Email Analyzer, an automated Google Apps Script, Node.js, and Gemini 1.5 Flash scheduled EAT pipeline for triaging university inbox deadlines.',
     ogImage: '/og/projects/email-analyzer.png',
   },
   {
@@ -302,21 +312,21 @@ export const projects: readonly Project[] = [
     subtitle: 'Contemporary African Hospitality Website Redesign',
     category: 'Hospitality Web · Conversion Design · Next.js 14',
     summary:
-      'A modern hospitality web redesign and direct-booking experience for The Ole~Ken Hotel in Nakuru, Kenya, engineered with Next.js 14, TypeScript, Tailwind CSS, and a streamlined WhatsApp reservation engine.',
+      'A modern hospitality web redesign and direct-booking experience for The Ole~Ken Hotel in Nakuru, Kenya, engineered with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and a streamlined WhatsApp reservation engine.',
     problem:
       'Regional hospitality websites frequently suffer from slow page loads, cluttered navigation, and high-friction reservation forms that cause mobile guests to abandon direct bookings in favor of third-party OTAs.',
     role: 'Lead Frontend & Conversion Engineer — Next.js 14 Architecture, Visual Redesign & Booking UX',
     process: [
-      'Audited the existing hospitality journey for The Ole~Ken Hotel (Nakuru) to identify mobile navigation bottlenecks and booking drop-off points.',
-      'Designed a warm, editorial African hospitality interface in Next.js 14 showcasing suites, dining, conferencing, and curated local experiences.',
-      'Built a structured WhatsApp and direct-inquiry booking composer that pre-populates room selection, check-in/out dates, and guest counts for instant concierge confirmation.',
+      'Audited the guest journey for The Ole~Ken Hotel (Nakuru, Kenya) to identify mobile navigation bottlenecks and reservation drop-off points.',
+      'Designed a warm, editorial African hospitality interface in Next.js 14 with Tailwind CSS and restrained Framer Motion transitions showcasing suites, dining, and conferencing.',
+      'Built a structured WhatsApp concierge booking engine that pre-populates room category, check-in/out dates, and guest counts for instant reservation confirmation.',
     ],
     solution:
-      'The Ole~Ken Hotel redesign elevates brand perception with fast Next.js rendering, tactile typography, and a high-conversion direct reservation flow tailored to how Kenyan and international travelers book.',
+      'The Ole~Ken Hotel redesign elevates brand perception with fast Next.js 14 rendering, editorial typography, Framer Motion polish, and a high-conversion WhatsApp direct reservation flow.',
     outcomes: [
-      'Engineered a responsive Next.js 14 + TypeScript hospitality platform with structured room, dining, and conference showcases.',
-      'Reduced booking friction by integrating a pre-validated WhatsApp concierge reservation builder alongside standard inquiries.',
-      'Implemented semantic hospitality schema markup and optimized image loading across mobile and desktop viewports.',
+      'Engineered a responsive Next.js 14 + TypeScript + Tailwind CSS hospitality platform with structured room, dining, and conference showcases.',
+      'Reduced booking friction by integrating a pre-validated WhatsApp concierge reservation builder alongside direct enquiries.',
+      'Implemented semantic hospitality schema markup and zero-CLS image loading across mobile and desktop viewports.',
     ],
     technologies: [
       'Next.js 14',
@@ -329,13 +339,13 @@ export const projects: readonly Project[] = [
     coverImage: '/images/projects/ole-ken-hotel-cover.svg',
     gallery: ['/images/projects/ole-ken-hotel-cover.svg'],
     altText:
-      'The Ole~Ken Hotel hospitality website redesign showing luxury suite showcase and direct WhatsApp booking flow',
+      'The Ole~Ken Hotel hospitality website redesign in Next.js 14 showing luxury suite showcase and direct WhatsApp concierge booking flow',
     referenceUrl: 'https://www.theolekenhotel.co.ke/',
     publishedAt: '2024-09-25',
     featured: false,
     seoTitle: 'The Ole~Ken Hotel — Contemporary Hospitality Website Redesign | Geoffrey Obwocha',
     seoDescription:
-      'Case study of The Ole~Ken Hotel website redesign in Next.js 14 and TypeScript, featuring a contemporary African hospitality aesthetic and WhatsApp booking engine.',
+      'Case study of The Ole~Ken Hotel website redesign in Next.js 14, TypeScript, Tailwind CSS, and Framer Motion with a direct WhatsApp booking engine.',
     ogImage: '/og/projects/ole-ken-hotel.png',
   },
 ];

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Email Analyzer Automated AI Academic Inbox Digest Pipeline">
+  <rect width="800" height="500" fill="#0A0A09" />
+  <g stroke="#262522" stroke-width="1">
+    <line x1="0" y1="64" x2="800" y2="64" />
+    <line x1="0" y1="444" x2="800" y2="444" />
+    <line x1="256" y1="64" x2="256" y2="444" />
+    <line x1="528" y1="64" x2="528" y2="444" />
+  </g>
+
+  <!-- Header -->
+  <text x="32" y="40" fill="#FF4D1C" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">SYS // 06 — EMAIL ANALYZER AUTOMATED DIGEST PIPELINE</text>
+  <text x="545" y="40" fill="#B8B3A8" font-family="monospace" font-size="12" letter-spacing="1.5">CRON // EAT (UTC+3)</text>
+
+  <!-- Col 1: Unread Gmail Ingestion -->
+  <text x="32" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">01 / GMAIL STREAM</text>
+
+  <g transform="translate(32, 118)">
+    <rect width="194" height="78" rx="3" fill="#121210" stroke="#262522" />
+    <text x="14" y="26" fill="#FF4D1C" font-family="monospace" font-size="10" font-weight="700">THREAD #1042</text>
+    <text x="14" y="46" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Exam Timetable Update</text>
+    <text x="14" y="64" fill="#B8B3A8" font-family="monospace" font-size="10">Faculty Circular · Unread</text>
+  </g>
+
+  <g transform="translate(32, 214)">
+    <rect width="194" height="78" rx="3" fill="#121210" stroke="#262522" />
+    <text x="14" y="26" fill="#FF4D1C" font-family="monospace" font-size="10" font-weight="700">THREAD #1049</text>
+    <text x="14" y="46" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Project Milestone Submission</text>
+    <text x="14" y="64" fill="#B8B3A8" font-family="monospace" font-size="10">Chiromo Club · Unread</text>
+  </g>
+
+  <g transform="translate(32, 310)">
+    <rect width="194" height="78" rx="3" fill="#121210" stroke="#262522" />
+    <text x="14" y="26" fill="#B8B3A8" font-family="monospace" font-size="10">THREAD #1053</text>
+    <text x="14" y="46" fill="#F5F3EE" font-family="sans-serif" font-size="13" font-weight="700">Campus Newsletter</text>
+    <text x="14" y="64" fill="#B8B3A8" font-family="monospace" font-size="10">Low Priority · Informational</text>
+  </g>
+
+  <!-- Col 2: Apps Script + Node.js + Gemini 1.5 Flash -->
+  <text x="282" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">02 / LLM EXTRACTION CORE</text>
+
+  <g transform="translate(282, 134)">
+    <rect width="220" height="236" rx="4" fill="#121210" stroke="#FF4D1C" stroke-width="1.5" />
+    <text x="18" y="30" fill="#FF4D1C" font-family="monospace" font-size="11" font-weight="700">GEMINI 1.5 FLASH WORKER</text>
+    <text x="18" y="56" fill="#F5F3EE" font-family="sans-serif" font-size="15" font-weight="700">Structured Triage Engine</text>
+    <line x1="18" y1="74" x2="202" y2="74" stroke="#262522" />
+    <text x="18" y="100" fill="#B8B3A8" font-family="monospace" font-size="11">1. Apps Script Batch Fetch</text>
+    <text x="18" y="126" fill="#B8B3A8" font-family="monospace" font-size="11">2. Urgency Classification</text>
+    <text x="18" y="152" fill="#B8B3A8" font-family="monospace" font-size="11">3. ISO Deadline Extraction</text>
+    <text x="18" y="178" fill="#B8B3A8" font-family="monospace" font-size="11">4. Rate-Limit Backoff Guard</text>
+    <rect x="18" y="196" width="184" height="24" rx="2" fill="#0A0A09" stroke="#262522" />
+    <text x="28" y="212" fill="#FF4D1C" font-family="monospace" font-size="10">STATUS: ZERO MANUAL TRIAGE</text>
+  </g>
+
+  <!-- Col 3: Prioritized Daily Digest -->
+  <text x="554" y="96" fill="#B8B3A8" font-family="monospace" font-size="11" letter-spacing="1.5">03 / DAILY ACTION BRIEFING</text>
+
+  <g transform="translate(554, 118)">
+    <rect width="214" height="270" rx="4" fill="#121210" stroke="#262522" />
+    <rect x="16" y="16" width="182" height="26" rx="2" fill="#FF4D1C" />
+    <text x="26" y="33" fill="#0A0A09" font-family="monospace" font-size="11" font-weight="700">07:00 EAT DIGEST READY</text>
+
+    <text x="16" y="68" fill="#FF4D1C" font-family="monospace" font-size="10" font-weight="700">[HIGH] DEADLINE: FRI 17:00</text>
+    <text x="16" y="86" fill="#F5F3EE" font-family="sans-serif" font-size="12" font-weight="600">Submit milestone repo link</text>
+
+    <line x1="16" y1="104" x2="198" y2="104" stroke="#262522" />
+
+    <text x="16" y="128" fill="#FF4D1C" font-family="monospace" font-size="10" font-weight="700">[HIGH] VENUE CHANGE</text>
+    <text x="16" y="146" fill="#F5F3EE" font-family="sans-serif" font-size="12" font-weight="600">CSC 314 moved to Lab 02</text>
+
+    <line x1="16" y1="164" x2="198" y2="164" stroke="#262522" />
+
+    <text x="16" y="188" fill="#B8B3A8" font-family="monospace" font-size="10">[INFO] ARCHIVED: 14 THREADS</text>
+    <text x="16" y="206" fill="#B8B3A8" font-family="sans-serif" font-size="12">Summarized in 1-line ledger</text>
+  </g>
+
+  <text x="32" y="476" fill="#B8B3A8" font-family="monospace" font-size="11">STACK: GOOGLE APPS SCRIPT · NODE.JS · GEMINI 1.5 FLASH · GMAIL API · CRON</text>
+</svg>
