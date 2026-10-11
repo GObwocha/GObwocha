@@ -153,7 +153,7 @@ export const siteConfig: SiteConfig = {
     {
       label: 'GitHub',
       url: 'https://github.com/GObwocha',
-      handle: '@GObwocha',
+      handle: 'GObwocha',
       external: true,
     },
     {
@@ -161,6 +161,18 @@ export const siteConfig: SiteConfig = {
       url: 'mailto:ondiekobwocha@gmail.com',
       handle: 'ondiekobwocha@gmail.com',
       external: false,
+    },
+    {
+      label: 'Instagram',
+      url: 'https://www.instagram.com/g_obwocha_dev/',
+      handle: 'g_obwocha_dev',
+      external: true,
+    },
+    {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/geoffrey-obwocha/',
+      handle: 'Geoffrey Obwocha',
+      external: true,
     },
   ],
   privacyNotice:

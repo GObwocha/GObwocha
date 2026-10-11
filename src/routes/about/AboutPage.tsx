@@ -292,7 +292,7 @@ export function AboutPage() {
         </h2>
         <p style={{ color: 'var(--color-text-secondary)' }}>
           Connect directly to review project requirements, technical trade-offs, or open-source work
-          on GitHub.
+          on GitHub, Instagram or LinkedIn.
         </p>
         <div
           className="about-cta"
@@ -318,6 +318,24 @@ export function AboutPage() {
             style={{ minHeight: '44px', minWidth: '44px' }}
           >
             Explore GitHub (@{siteConfig.handle})
+          </a>
+          <a
+            href={siteConfig.socials[2]?.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary cta-secondary"
+            style={{ minHeight: '44px', minWidth: '44px' }}
+          >
+            Explore Instagram (@{siteConfig.socials[2]?.handle})
+          </a>
+          <a
+            href={siteConfig.socials[3]?.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary cta-secondary"
+            style={{ minHeight: '44px', minWidth: '44px' }}
+          >
+            Explore LinkedIn (@{siteConfig.socials[3]?.handle})
           </a>
         </div>
       </section>

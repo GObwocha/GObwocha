@@ -108,7 +108,43 @@ export function ContactPage({ client, mountedAtMs, onSuccess }: ContactPageProps
                   alignItems: 'center',
                 }}
               >
-                {siteConfig.githubUrl}
+                GObwocha
+              </a>
+            </dd>
+          </div>
+          <div className="contact-channels-ledger__item">
+            <dt style={{ fontWeight: 600 }}>Instagram</dt>
+            <dd>
+              <a
+                href={siteConfig.socials[2]?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  minHeight: '44px',
+                  minWidth: '44px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                }}
+              >
+                @g_obwocha_dev
+              </a>
+            </dd>
+          </div>
+          <div className="contact-channels-ledger__item">
+            <dt style={{ fontWeight: 600 }}>LinkedIn</dt>
+            <dd>
+              <a
+                href={siteConfig.socials[3]?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  minHeight: '44px',
+                  minWidth: '44px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                }}
+              >
+                Geoffrey Obwocha
               </a>
             </dd>
           </div>
