@@ -91,3 +91,51 @@ All sprint tasks, validation results, and board transitions are recorded chronol
 - **Commit or PR:** `5451db6` — `docs(S0-T4): document product.inc visual analysis and original design direction`
 - **Next ready task:** `S1-T1` (Scaffold app and quality tooling), followed by `S1-T2` (Add design tokens and global styles)
 
+---
+
+## 2026-10-11 — S1-T1: Scaffold app and quality tooling
+
+- **Status:** DONE
+- **Summary:** Scaffolded the production React 19 + TypeScript + Vite 8 + React Router v8 SSG/SSR application and quality tooling pipeline per `AGENTS.md` §5, §6, and §8. Configured strict TypeScript (`strict: true`, `noUncheckedIndexedAccess: true`, `noUnusedLocals: true`, `noUnusedParameters: true`), ESLint v9 flat config (`@eslint/js`, `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y`, plus `no-restricted-imports` guarding client bundles from `**/lib/supabase/server*`), Prettier formatting, Vitest + React Testing Library + `vitest-axe` unit/accessibility testing, Playwright E2E configuration, GitHub Actions CI workflow (`.github/workflows/ci.yml`), and the Vite client + SSR + build-time pre-rendering pipeline (`src/entry-client.tsx`, `src/entry-server.tsx`, `scripts/prerender.mjs`).
+- **Files changed:**
+  - `.gitignore` (created)
+  - `.env.example` (created)
+  - `package.json` (created)
+  - `package-lock.json` (created)
+  - `tsconfig.json` (created)
+  - `vite.config.ts` (created)
+  - `eslint.config.js` (created)
+  - `prettier.config.js` (created)
+  - `.prettierignore` (created)
+  - `playwright.config.ts` (created)
+  - `.github/workflows/ci.yml` (created)
+  - `index.html` (created)
+  - `src/vite-env.d.ts` (created)
+  - `src/app/App.tsx` (created)
+  - `src/entry-client.tsx` (created)
+  - `src/entry-server.tsx` (created)
+  - `scripts/prerender.mjs` (created)
+  - `src/test/setup.ts` (created)
+  - `src/app/App.test.tsx` (created)
+  - `README.md` (updated with architecture and quality commands)
+  - `AGENTS.md` (updated Sprint Board §7: `S1-T1` -> `DONE`; `S1-T2`, `S1-T3`, `S1-T4`, `S3-T1` -> `READY`)
+  - `docs/SPRINT_LOG.md` (updated)
+- **Validation commands:**
+  - `npm run format`
+  - `npm run lint`
+  - `npm run typecheck`
+  - `npm run format:check`
+  - `npm run test`
+  - `npm run build`
+  - `npm audit --omit=dev`
+- **Results:**
+  - `npm run lint`: **PASS** (exit code `0`, 0 errors, 0 warnings)
+  - `npm run typecheck`: **PASS** (exit code `0`, strict TypeScript check clean)
+  - `npm run format:check`: **PASS** (exit code `0`, all matched files use Prettier code style)
+  - `npm run test`: **PASS** (exit code `0`, `src/app/App.test.tsx` — 1 test file passed, 2 tests passed including `vitest-axe` WCAG accessibility check)
+  - `npm run build`: **PASS** (exit code `0`, client bundle `258.48 kB` / `82.21 kB` gzip, SSR bundle `1.73 kB`, and `scripts/prerender.mjs` generated `dist/index.html` and `dist/404.html` with pre-rendered `<main id="main-content">` semantic HTML and route-specific `<title>` / `<meta name="description">`)
+  - `npm audit --omit=dev`: **PASS** (exit code `0`, `found 0 vulnerabilities`)
+- **Manual checks:** Inspected `dist/index.html` and `dist/404.html` to verify non-empty `<div id="root"><main id="main-content">...</main></div>` pre-rendered HTML and route-specific head metadata.
+- **Known limitations / follow-up:** Full multi-route shell (`/work`, `/work/:slug`, `/about`, `/contact`), design tokens (`src/styles/tokens.css`), and comprehensive SEO metadata helpers will be implemented in `S1-T2`, `S1-T3`, and `S1-T4`.
+- **Commit or PR:** Recorded in `git log -n 1` for `feat(S1-T1): scaffold React + Vite SSG/SSR app and quality tooling`
+- **Next ready task:** `S1-T2` (Add design tokens and global styles), `S1-T3` (Establish route/layout shell), `S1-T4` (Establish SEO foundation), `S3-T1` (Create Supabase project configuration)

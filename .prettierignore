@@ -1,0 +1,10 @@
+dist/
+dist-ssr/
+node_modules/
+package-lock.json
+coverage/
+playwright-report/
+test-results/
+.agents/
+AGENTS.md
+docs/
