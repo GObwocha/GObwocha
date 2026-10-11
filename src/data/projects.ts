@@ -14,7 +14,7 @@ export const projects: readonly Project[] = [
     organization: 'Chiromo Tech Club, University of Nairobi',
     teammates: [
       {
-        name: 'Collins Kimanzi (Collins Mwandikwa)',
+        name: 'Collins Kimanzi',
         githubHandle: 'Kimanzi-Collins',
         githubUrl: 'https://github.com/Kimanzi-Collins',
         role: 'Co-Engineer — Detection Pipeline & Architecture',
@@ -265,7 +265,6 @@ export const projects: readonly Project[] = [
     altText:
       'GeliScope AI Vision Assessment Engine showing Vue 3, Vuetify, and Chart.js cognitive and skill profile dashboards backed by Laravel and MongoDB',
     liveUrl: 'https://geliscope.up.railway.app/',
-    repositoryUrl: 'https://github.com/GObwocha/GeliScope',
     publishedAt: '2024-12-01',
     featured: false,
     seoTitle: 'GeliScope — AI Vision Assessment Engine & Cognitive Profiling | Geoffrey Obwocha',
