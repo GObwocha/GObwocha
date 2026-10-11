@@ -218,7 +218,7 @@ export const projects: readonly Project[] = [
       'SomaStar adaptive learning interface showing React 19 and Recharts topic mastery analytics backed by FastAPI and SQLAlchemy 2.0',
     repositoryUrl: 'https://github.com/Emmanuel-Makori-Obiero/somastar',
     publishedAt: '2025-01-05',
-    featured: true,
+    featured: false,
     seoTitle: 'SomaStar — Adaptive Learning & AI Exam Intelligence Platform | Geoffrey Obwocha',
     seoDescription:
       'Case study of SomaStar, a React 19, FastAPI, SQLAlchemy 2.0, and Recharts adaptive exam intelligence platform co-engineered by Geoffrey Obwocha and Emmanuel Makori Obiero.',
@@ -266,7 +266,7 @@ export const projects: readonly Project[] = [
       'GeliScope AI Vision Assessment Engine showing Vue 3, Vuetify, and Chart.js cognitive and skill profile dashboards backed by Laravel and MongoDB',
     liveUrl: 'https://geliscope.up.railway.app/',
     publishedAt: '2024-12-01',
-    featured: false,
+    featured: true,
     seoTitle: 'GeliScope — AI Vision Assessment Engine & Cognitive Profiling | Geoffrey Obwocha',
     seoDescription:
       'Case study of GeliScope, an AI Vision Assessment Engine built with Vue 3, Vite, Vuetify, Pinia, Chart.js, Laravel, Sanctum, and MongoDB to streamline exam marking and generate student cognitive profiles.',
