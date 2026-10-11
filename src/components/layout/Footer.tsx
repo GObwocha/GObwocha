@@ -62,7 +62,25 @@ export function Footer() {
             className="site-footer__external-link"
             style={{ minHeight: '44px', minWidth: '44px' }}
           >
-            GitHub (@GObwocha)
+            GitHub
+          </a>
+          <a
+            href="https://www.instagram.com/g_obwocha_dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-footer__external-link"
+            style={{ minHeight: '44px', minWidth: '44px' }}
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.linkedin.com/in/geoffrey-obwocha/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-footer__external-link"
+            style={{ minHeight: '44px', minWidth: '44px' }}
+          >
+            LinkedIn
           </a>
         </div>
       </div>
