@@ -330,16 +330,16 @@ And verified via the canonical `AGENTS.md` §8 sequence:
 ### 3.4 Sprint 0 & Sprint 1 Step-by-Step Execution Plan
 
 #### Sprint 0 Completion Summary (`S0-T1`–`S0-T4`)
-| Task ID | Deliverable | Dependencies | Status | Files Touched |
-|---|---|---|---|---|
-| **S0-T1** | Audit repository and environment | None | `DONE` | `docs/IMPLEMENTATION_PLAN.md`, `docs/SPRINT_LOG.md`, `AGENTS.md` |
-| **S0-T2** | Confirm rendering architecture | `S0-T1` | `DONE` | `docs/IMPLEMENTATION_PLAN.md` |
-| **S0-T3** | Extract requirements and content gaps | `S0-T1` | `READY` / Parallel | `docs/NFR_VALIDATION.md` |
-| **S0-T4** | Inspect visual reference | `S0-T1` | `READY` / Parallel | `docs/DESIGN_DIRECTION.md` |
+| Task ID | Deliverable | Dependencies | Status | Files Touched | Commit |
+|---|---|---|---|---|---|
+| **S0-T1** | Audit repository and environment | None | `DONE` | `docs/IMPLEMENTATION_PLAN.md`, `docs/SPRINT_LOG.md`, `AGENTS.md` | `04867c5` |
+| **S0-T2** | Confirm rendering architecture | `S0-T1` | `DONE` | `docs/IMPLEMENTATION_PLAN.md` | `9ab0717` |
+| **S0-T3** | Extract requirements and content gaps | `S0-T1` | `DONE` | `docs/NFR_VALIDATION.md` | `2bede98` |
+| **S0-T4** | Inspect visual reference | `S0-T1` | `DONE` | `docs/DESIGN_DIRECTION.md` | `5451db6` |
 
 #### Sprint 1 Execution Plan (`S1-T1`–`S1-T4`)
 
-1. **`S1-T1` — Scaffold app and quality tooling** (`Dependencies: S0-T2`)
+1. **`S1-T1` — Scaffold app and quality tooling** (`Dependencies: S0-T2` — **`READY`**)
    - **Outcome:** Runnable React 19 + TypeScript + Vite SSG/SSR application with strict TypeScript, ESLint, Prettier, Vitest, Playwright, and `.github/workflows/ci.yml`.
    - **Files to Create/Update:** `package.json`, `package-lock.json`, `tsconfig.json`, `vite.config.ts`, `eslint.config.js`, `prettier.config.js`, `.gitignore`, `.env.example`, `playwright.config.ts`, `index.html`, `src/entry-client.tsx`, `src/entry-server.tsx`, `scripts/prerender.mjs`, `src/test/setup.ts`, `.github/workflows/ci.yml`.
    - **Validation:** Clean `npm ci`, `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm run test`, `npm run build`, and `npm audit --omit=dev` all pass with exit code `0`.
@@ -358,4 +358,11 @@ And verified via the canonical `AGENTS.md` §8 sequence:
    - **Outcome:** Strongly-typed SEO metadata architecture (`src/types/seo.ts`, `src/components/seo/RouteHead.tsx`, and build-time head serialization in `src/entry-server.tsx` + `scripts/prerender.mjs`), `public/robots.txt`, `public/site.webmanifest`, and generated `dist/sitemap.xml`.
    - **Files to Create/Update:** `src/types/seo.ts`, `src/components/seo/*`, `src/data/site.ts`, `src/data/projects.ts` (initial typed schema), `src/entry-server.tsx`, `scripts/prerender.mjs`, `public/robots.txt`, `public/site.webmanifest`, and build-output HTML metadata tests.
    - **Validation:** Automated inspection of compiled `dist/**/index.html` files confirms every route has a unique `<title>`, `<meta name="description">`, `<link rel="canonical">`, Open Graph (`1200×630` image tags), Twitter Card (`summary_large_image`), single `<h1>`, and semantic HTML5 landmarks in raw pre-rendered HTML before any client JS executes.
+
+---
+
+### 3.5 Companion Sprint 0 Deliverables (`S0-T3` & `S0-T4`)
+
+- **NFR Matrix & Owner-Input Content Gaps (`S0-T3`):** See [`docs/NFR_VALIDATION.md`](./NFR_VALIDATION.md) for the complete mapping of all 34 non-functional requirements across `AGENTS.md` §4.1–§4.5 (`PERF-01..09`, `A11Y-01..07`, `RESP-01..05`, `SEO-01..05`, `SEC-01..08`) and the 13 owner-input content gaps (`GAP-01..13`) governed by the `TODO: OWNER INPUT REQUIRED` contract.
+- **Visual Reference Inspection & Original Design Direction (`S0-T4`):** See [`docs/DESIGN_DIRECTION.md`](./DESIGN_DIRECTION.md) for the empirical analysis of `https://www.product.inc/`, the 4 design pillars (*Architectural Precision*), WCAG 2.1 AA contrast-verified color tokens (`#0A0A09` Warm Obsidian / `#F5F3EE` Archival Stone / `#FF4D1C` International Vermilion), fluid typography (`Syne` + `Plus Jakarta Sans` + `JetBrains Mono`), 60 FPS GPU motion curves, and explicit anti-copy boundaries.
 
