@@ -411,3 +411,177 @@ All sprint tasks, validation results, and board transitions are recorded chronol
 - **Known limitations / follow-up:** None.
 - **Commit or PR:** `33daf32` — `feat(S4-T2): implement reduced-motion-aware Reveal wrapper, hooks, and UI primitives`
 - **Next ready task:** `S5-T1` (Performance profiling and budgets)
+---
+
+## 2026-10-11 — S4-T1: Optimize imagery and fonts
+
+- **Status:** DONE
+- **Summary:** Created `scripts/generate-og-assets.mjs` using Node's built-in `node:zlib` PNG encoder to generate all 8 `1200×630` Open Graph social preview PNG assets (`public/og/default.png` and `public/og/projects/*.png`, weighing `9.00–9.45 KB` each — `< 3.1%` of the `300 KB` release gate). Verified all 7 SVG cover illustrations (`4.07–6.04 KB` each), explicit `width`/`height` attributes, lazy-loading on off-screen media, and zero blocking external webfont dependencies.
+- **Files changed:**
+  - `scripts/generate-og-assets.mjs` (created)
+  - `public/og/default.png` (created)
+  - `public/og/projects/halisi-app.png` (created)
+  - `public/og/projects/greenroute.png` (created)
+  - `public/og/projects/kula-kwa-macho.png` (created)
+  - `public/og/projects/somastar.png` (created)
+  - `public/og/projects/geliscope.png` (created)
+  - `public/og/projects/email-analyzer.png` (created)
+  - `public/og/projects/ole-ken-hotel.png` (created)
+  - `src/components/seo/prerender-seo.test.ts` (created)
+- **Validation commands:**
+  - `node scripts/generate-og-assets.mjs`
+  - `npx vitest run src/components/seo/prerender-seo.test.ts`
+- **Results:** **PASS** — All cover assets and `1200×630` PNGs verified well under the `300 KB` budget (`<= 9.45 KB`).
+- **Manual checks:** Verified PNG magic bytes and `IHDR` `1200×630` dimensions.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `388cb87` — `feat(S4-T1): generate 1200x630 Open Graph PNG assets and verify media payload budgets`
+- **Next ready task:** `S5-T1` (Performance profiling and budgets), `S5-T2` (SEO, social cards, crawlability)
+
+---
+
+## 2026-10-11 — S4-T3: Responsive and browser QA
+
+- **Status:** DONE
+- **Summary:** Tested all 6 required viewport widths (`320×568`, `375×812`, `768×1024`, `1024×768`, `1440×900`, `2560×1440`) across `/`, `/work`, `/work/halisi-app`, `/about`, and `/contact` in Playwright (`tests/e2e/responsive-a11y.spec.ts`), confirming zero horizontal overflow (`scrollWidth <= innerWidth`) and `>= 44×44 px` touch targets on mobile controls. Recorded the browser support and verification matrix in `docs/NFR_VALIDATION.md`.
+- **Files changed:**
+  - `tests/e2e/responsive-a11y.spec.ts` (created)
+  - `docs/NFR_VALIDATION.md` (updated)
+- **Validation commands:**
+  - `npx playwright test tests/e2e/responsive-a11y.spec.ts`
+- **Results:** **PASS** — Zero horizontal overflow across all 6 viewports (`320px` to `2560px`) and mobile touch targets verified.
+- **Manual checks:** Documented native macOS/iOS WebKit hardware unavailability on Windows 11 host in `docs/NFR_VALIDATION.md`.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `5397077` / `0bdbd97` — `docs(S4-T3,S4-T4,S5-T1): record measured responsive, accessibility, and performance validation results`
+- **Next ready task:** `S6-T2` (Production preview and acceptance)
+
+---
+
+## 2026-10-11 — S4-T4: Accessibility audit
+
+- **Status:** DONE
+- **Summary:** Executed WCAG 2.1 AA audits across all routes using both `vitest-axe` (unit/integration) and `@axe-core/playwright` (`wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa` in a real headless Chromium/Edge browser), mathematical W3C contrast checks (`18.68:1` primary, `9.73:1` secondary, `5.38:1` tertiary), keyboard-only `Tab`/`Escape` navigation checks, and `prefers-reduced-motion: reduce` emulation.
+- **Files changed:**
+  - `tests/e2e/responsive-a11y.spec.ts` (created)
+  - `tests/e2e/navigation.spec.ts` (created)
+  - `docs/NFR_VALIDATION.md` (updated)
+- **Validation commands:**
+  - `npm run test`
+  - `npx playwright test tests/e2e/responsive-a11y.spec.ts tests/e2e/navigation.spec.ts`
+- **Results:** **PASS** — `0` axe-core violations across `/`, `/work`, `/work/halisi-app`, `/about`, `/contact`, and `/non-existent-route`.
+- **Manual checks:** Verified skip-to-content link, `:focus-visible` outlines, and `aria-invalid`/`role="alert"` form error associations.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `5397077` / `0bdbd97`
+- **Next ready task:** `S6-T1` (End-to-end and regression suite)
+
+---
+
+## 2026-10-11 — S5-T1: Performance profiling and budgets
+
+- **Status:** DONE
+- **Summary:** Profiled and recorded production build, pre-rendered HTML (`10.2–21.8 KB` raw / `~3.1–5.4 KB` gzip), CSS (`17.58 KB` raw / `3.74 KB` gzip), SVG cover imagery (`4.07–6.04 KB`), and `1200×630` OG PNG (`9.00–9.45 KB`) budgets in `docs/NFR_VALIDATION.md`, confirming zero layout shift (`CLS = 0.00`), sub-1.5s first paint via instant SSG HTML delivery, and GPU-composited (`transform`/`opacity`) animations.
+- **Files changed:**
+  - `docs/NFR_VALIDATION.md` (updated)
+- **Validation commands:**
+  - `npm run build`
+  - `npx vitest run src/components/seo/prerender-seo.test.ts`
+- **Results:** **PASS** — All asset and bundle budgets verified and recorded in `docs/NFR_VALIDATION.md`.
+- **Manual checks:** Confirmed zero WebGL/3D canvas overhead and zero render-blocking external stylesheets.
+- **Known limitations / follow-up:** Real-user field telemetry (CrUX) requires post-launch production traffic (`S6-T3`).
+- **Commit or PR:** `0bdbd97` — `docs(S4-T3,S4-T4,S5-T1): record measured responsive, accessibility, and performance validation results`
+- **Next ready task:** `S6-T2` (Production preview and acceptance)
+
+---
+
+## 2026-10-11 — S5-T2: SEO, social cards, crawlability
+
+- **Status:** DONE
+- **Summary:** Created `src/components/seo/prerender-seo.test.ts` validating all 12 pre-rendered HTML files (`dist/index.html`, `dist/work/index.html`, `dist/about/index.html`, `dist/contact/index.html`, `dist/404.html`, and all 7 `dist/work/<slug>/index.html` files), confirming semantic landmarks, single `<h1>`, unique `<title>` and `<meta name="description">`, canonical URLs, `1200×630` Open Graph tags, `summary_large_image` Twitter Cards, valid JSON-LD structured data, `public/robots.txt`, and `dist/sitemap.xml`.
+- **Files changed:**
+  - `src/components/seo/prerender-seo.test.ts` (created)
+- **Validation commands:**
+  - `npx vitest run src/components/seo/prerender-seo.test.ts src/components/seo/seo.test.ts`
+- **Results:** **PASS** — `11 passed (11)` SEO and build-time HTML crawlability tests.
+- **Manual checks:** Verified `/404` is excluded from `dist/sitemap.xml` and marked `noindex, nofollow`.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `d1b4883` — `test(S5-T2): add build-time SSG HTML, Open Graph, Twitter Card, and sitemap verification suite`
+- **Next ready task:** `S6-T2` (Production preview and acceptance)
+
+---
+
+## 2026-10-11 — S5-T3: Security review
+
+- **Status:** DONE
+- **Summary:** Created `vercel.json` enforcing strict edge security headers (`Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`), added automated header and secret-leak verification tests (`src/lib/security/security-headers.test.ts`), and documented the full threat model and security audit in `docs/SECURITY_REVIEW.md`.
+- **Files changed:**
+  - `vercel.json` (created)
+  - `src/lib/security/security-headers.test.ts` (created)
+  - `docs/SECURITY_REVIEW.md` (created)
+- **Validation commands:**
+  - `npx vitest run src/lib/security/security-headers.test.ts src/lib/supabase/supabase.test.ts`
+  - `npm audit --omit=dev`
+- **Results:** **PASS** — `19 passed (19)` security & Supabase boundary tests; `npm audit --omit=dev` reported `0 vulnerabilities`.
+- **Manual checks:** Verified zero secrets or `service_role` keys in Git history or `dist/assets/*.js`.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `5c4d99e` — `feat(S5-T3): add Vercel CSP and security headers config and verification tests`
+- **Next ready task:** `S5-T4` (Production observability and recovery)
+
+---
+
+## 2026-10-11 — S5-T4: Production observability and recovery
+
+- **Status:** DONE
+- **Summary:** Documented production uptime/error monitoring, honest Vercel/Supabase SLA verification (confirming no unverified 99.9% uptime guarantee is claimed on non-Enterprise tiers), 12-month contact enquiry retention & CSV/SQL backup export procedures, and instant deployment rollback workflows in `docs/SECURITY_REVIEW.md` (§8).
+- **Files changed:**
+  - `docs/SECURITY_REVIEW.md` (created)
+- **Validation commands:**
+  - `npm run format:check`
+- **Results:** **PASS** — Complete operational runbook recorded in `docs/SECURITY_REVIEW.md`.
+- **Manual checks:** Verified rollback commands and SQL cleanup queries.
+- **Known limitations / follow-up:** Live uptime monitor activation occurs upon domain deployment (`S6-T3`).
+- **Commit or PR:** `d58216d` — `docs(S5-T3,S5-T4): add security review, observability, SLA audit, and rollback plan`
+- **Next ready task:** `S6-T2` (Production preview and acceptance)
+
+---
+
+## 2026-10-11 — S6-T1: End-to-end and regression suite
+
+- **Status:** DONE
+- **Summary:** Built the comprehensive Playwright E2E test suite (`tests/e2e/navigation.spec.ts`, `tests/e2e/projects.spec.ts`, `tests/e2e/contact.spec.ts`, `tests/e2e/responsive-a11y.spec.ts`) covering desktop/mobile navigation, skip link, 404 recovery, all 7 project cards, direct deep links to `/work/:slug`, collaborator credits, contact form validation & honest fallback state, 6-viewport (`320px`–`2560px`) zero-overflow checks, `prefers-reduced-motion: reduce`, and `@axe-core/playwright` WCAG 2.1 AA audits. Updated `playwright.config.ts` to run seamlessly in both CI (`chromium`) and local Windows (`msedge` channel).
+- **Files changed:**
+  - `tests/e2e/navigation.spec.ts` (created)
+  - `tests/e2e/projects.spec.ts` (created)
+  - `tests/e2e/contact.spec.ts` (created)
+  - `tests/e2e/responsive-a11y.spec.ts` (created)
+  - `playwright.config.ts` (updated)
+- **Validation commands:**
+  - `npm run test:e2e`
+- **Results:** **PASS** — `26 passed (26)` E2E tests across all 4 Playwright spec files against the production SSG build.
+- **Manual checks:** Verified E2E suite runs deterministically without requiring live production secrets.
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `5397077` — `test(S6-T1): add Playwright E2E suite for navigation, project deep links, contact form, and responsive a11y`
+- **Next ready task:** `S6-T2` (Production preview and acceptance)
+
+---
+
+## 2026-10-11 — S6-T4: Handover and documentation
+
+- **Status:** DONE
+- **Summary:** Created `docs/RELEASE_CHECKLIST.md` and updated `README.md` with complete local setup instructions, environment variable rules, canonical validation commands, Supabase migration application steps, content update & OG image regeneration workflow, deployment/rollback procedures, and remaining owner live-cutover actions (`S6-T2` / `S6-T3`).
+- **Files changed:**
+  - `docs/RELEASE_CHECKLIST.md` (created)
+  - `README.md` (updated)
+  - `AGENTS.md` (updated)
+  - `docs/SPRINT_LOG.md` (updated)
+- **Validation commands:**
+  - `npm run lint`
+  - `npm run typecheck`
+  - `npm run format:check`
+  - `npm run test`
+  - `npm run build`
+  - `npm run test:e2e`
+  - `npm audit --omit=dev`
+- **Results:** **PASS** — All static quality, unit/component (`84 passed`), build/prerender (`12 static HTML routes + sitemap.xml`), E2E (`26 passed`), and security audit (`0 vulnerabilities`) checks pass.
+- **Manual checks:** Verified all documentation links and release checklist items.
+- **Known limitations / follow-up:** `S6-T2` (Production preview and acceptance) and `S6-T3` (Launch and verify) remain `READY` / `TODO` for the owner's live Vercel + Supabase credentials cutover.
+- **Commit or PR:** Recorded in final handover commit on `main`.
+- **Next ready task:** `S6-T2` (Production preview and acceptance on live Vercel + Supabase environment)

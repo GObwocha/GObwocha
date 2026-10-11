@@ -130,7 +130,7 @@ describe('S5-T2: Pre-rendered SSG HTML, Social Cards & Crawlability Verification
       // Non-empty <main> content
       const mainMatch = html.match(/<main id="main-content"[^>]*>([\s\S]*?)<\/main>/);
       expect(mainMatch, `Missing <main> content in ${page.route}`).not.toBeNull();
-      expect(mainMatch?.[1].trim().length).toBeGreaterThan(200);
+      expect((mainMatch?.[1] ?? '').trim().length).toBeGreaterThan(200);
 
       // Exactly one <h1> element per page
       const h1Matches = html.match(/<h1\b[^>]*>/g) ?? [];
@@ -148,13 +148,13 @@ describe('S5-T2: Pre-rendered SSG HTML, Social Cards & Crawlability Verification
 
       const titleMatch = html.match(/<title>([^<]+)<\/title>/);
       expect(titleMatch, `Missing <title> in ${page.route}`).not.toBeNull();
-      const title = titleMatch![1].trim();
+      const title = (titleMatch?.[1] ?? '').trim();
       expect(title.length).toBeGreaterThan(15);
       seenTitles.add(title);
 
       const descMatch = html.match(/<meta name="description" content="([^"]+)"\s*\/?>/);
       expect(descMatch, `Missing meta description in ${page.route}`).not.toBeNull();
-      const description = descMatch![1].trim();
+      const description = (descMatch?.[1] ?? '').trim();
       expect(description.length).toBeGreaterThan(40);
       seenDescriptions.add(description);
 
@@ -172,7 +172,7 @@ describe('S5-T2: Pre-rendered SSG HTML, Social Cards & Crawlability Verification
       // Verify JSON-LD structured data is present and parses as valid JSON
       const jsonLdMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
       expect(jsonLdMatch, `Missing JSON-LD script in ${page.route}`).not.toBeNull();
-      const parsedJsonLd = JSON.parse(jsonLdMatch![1]) as Record<string, unknown>;
+      const parsedJsonLd = JSON.parse(jsonLdMatch?.[1] ?? '{}') as Record<string, unknown>;
       expect(parsedJsonLd).toBeTruthy();
     }
 

@@ -1,4 +1,8 @@
+import fs from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
+
+const LOCAL_MSEDGE_PATH = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+const useMsEdgeChannel = !process.env.CI && fs.existsSync(LOCAL_MSEDGE_PATH);
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -14,7 +18,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        ...(useMsEdgeChannel ? { channel: 'msedge' } : {}),
+      },
     },
   ],
   webServer: {

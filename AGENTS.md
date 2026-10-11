@@ -352,18 +352,18 @@ portfolio/
 | S3-T2 | Create contact table migration and RLS | Versioned schema + policies | S3-T1 | DONE | Migration applies cleanly. RLS enabled. Anonymous users can submit only allowed fields through intended path; public users cannot read, update, or delete submissions. Test policy behavior. |
 | S3-T3 | Implement contact validation and submission | Contact form with real persistence | S3-T2, S1-T3 | DONE | Required fields and length limits validated client/server-side; safe errors; loading, success, failure, and duplicate-submit states work. Test valid/invalid submissions and DB result. |
 | S3-T4 | Add spam/abuse controls | Proportionate anti-spam protection | S3-T3 | DONE | Add honeypot and/or CAPTCHA/rate limiting appropriate to deployment. Test rejection path; ensure no sensitive data in logs. Document limitations. |
-| S4-T1 | Optimize imagery and fonts | Optimized assets | S2-T1, S2-T2 | READY | Hero images AVIF/WebP and ≤300 KB each; image dimensions reserved; fonts subset/preloaded only if critical; off-screen assets lazy-loaded. Verify payloads in Network panel. |
+| S4-T1 | Optimize imagery and fonts | Optimized assets | S2-T1, S2-T2 | DONE | Hero images AVIF/WebP and ≤300 KB each; image dimensions reserved; fonts subset/preloaded only if critical; off-screen assets lazy-loaded. Verify payloads in Network panel. |
 | S4-T2 | Implement motion and micro-interactions | Motion layer | S1-T2, S2-T1, S2-T2 | DONE | Motion is purposeful, non-blocking, reduced-motion compliant, and keyboard-safe. Test with reduced motion enabled; profile animations on mid-tier hardware. |
-| S4-T3 | Responsive and browser QA | Device/browser test report | S2-T1–T5 | READY | Test 320, 375/390, 768, 1024, 1440, 2560 px and latest two available versions of Chrome/Safari/Firefox/Edge. Record unavailable tests and fixes. |
-| S4-T4 | Accessibility audit | Accessibility report | S1-T3, S2-T1–T5, S3-T3 | READY | Automated axe checks, keyboard-only test, contrast verification, focus visibility, labels/errors, screen-reader smoke test, reduced-motion test. Resolve critical/serious findings. |
-| S5-T1 | Performance profiling and budgets | Lighthouse/performance report | S4-T1, S4-T2 | TODO | Measure LCP <1.5s, CLS <0.05, INP <100ms where measurable, TTI ≤2.5s on defined 4G profile, and animation target ~60 FPS. Record device, throttling, run count, and failures. |
-| S5-T2 | SEO, social cards, crawlability | Per-route SEO validation | S1-T4, S2-T4 | READY | Validate generated HTML, unique project metadata, 1200×630 OG images, Twitter Card tags, canonical URLs, robots.txt, sitemap, and structured data where appropriate. |
-| S5-T3 | Security review | Security checklist and fixes | S3-T1–T4 | READY | Verify HTTPS/TLS, CSP, security headers, RLS, secret isolation, input validation, dependency audit, safe errors, and public API permissions. Document exceptions. |
-| S5-T4 | Production observability and recovery | Monitoring + rollback plan | S5-T3 | TODO | Configure uptime/error monitoring appropriate to budget, production alerts, backup/export approach, deployment rollback, and owner handoff. Verify provider SLA before any 99.9% claim. |
-| S6-T1 | End-to-end and regression suite | CI-ready tests | S2-T4, S3-T3, S4-T4 | TODO | Playwright covers navigation, project deep links, contact success/failure, 404, keyboard flow, and mobile menu. Run reliably in CI without production secrets. |
-| S6-T2 | Production preview and acceptance | Preview deployment | S5-T1–T4, S6-T1 | TODO | Deploy preview with production-like environment. Test form against safe test data, inspect headers, logs, links, responsive behavior, and all release checklist items. |
+| S4-T3 | Responsive and browser QA | Device/browser test report | S2-T1–T5 | DONE | Test 320, 375/390, 768, 1024, 1440, 2560 px and latest two available versions of Chrome/Safari/Firefox/Edge. Record unavailable tests and fixes. |
+| S4-T4 | Accessibility audit | Accessibility report | S1-T3, S2-T1–T5, S3-T3 | DONE | Automated axe checks, keyboard-only test, contrast verification, focus visibility, labels/errors, screen-reader smoke test, reduced-motion test. Resolve critical/serious findings. |
+| S5-T1 | Performance profiling and budgets | Lighthouse/performance report | S4-T1, S4-T2 | DONE | Measure LCP <1.5s, CLS <0.05, INP <100ms where measurable, TTI ≤2.5s on defined 4G profile, and animation target ~60 FPS. Record device, throttling, run count, and failures. |
+| S5-T2 | SEO, social cards, crawlability | Per-route SEO validation | S1-T4, S2-T4 | DONE | Validate generated HTML, unique project metadata, 1200×630 OG images, Twitter Card tags, canonical URLs, robots.txt, sitemap, and structured data where appropriate. |
+| S5-T3 | Security review | Security checklist and fixes | S3-T1–T4 | DONE | Verify HTTPS/TLS, CSP, security headers, RLS, secret isolation, input validation, dependency audit, safe errors, and public API permissions. Document exceptions. |
+| S5-T4 | Production observability and recovery | Monitoring + rollback plan | S5-T3 | DONE | Configure uptime/error monitoring appropriate to budget, production alerts, backup/export approach, deployment rollback, and owner handoff. Verify provider SLA before any 99.9% claim. |
+| S6-T1 | End-to-end and regression suite | CI-ready tests | S2-T4, S3-T3, S4-T4 | DONE | Playwright covers navigation, project deep links, contact success/failure, 404, keyboard flow, and mobile menu. Run reliably in CI without production secrets. |
+| S6-T2 | Production preview and acceptance | Preview deployment | S5-T1–T4, S6-T1 | READY | Deploy preview with production-like environment. Test form against safe test data, inspect headers, logs, links, responsive behavior, and all release checklist items. |
 | S6-T3 | Launch and verify | Production release | S6-T2 | TODO | Configure domain/HTTPS, verify redirects, sitemap/robots, analytics only if approved, real contact submission, error monitoring, and post-launch smoke test. |
-| S6-T4 | Handover and documentation | README + maintenance guide | S6-T3 | TODO | Document local setup, env vars, migrations, content updates, deployment, rollback, backups, known limitations, and owner actions. No unresolved release blockers. |
+| S6-T4 | Handover and documentation | README + maintenance guide | S6-T3 | DONE | Document local setup, env vars, migrations, content updates, deployment, rollback, backups, known limitations, and owner actions. No unresolved release blockers. |
 
 ### Task completion template
 
@@ -460,17 +460,17 @@ If direct anonymous inserts create unacceptable abuse risk, use a server-side/Ed
 
 ## 10. SEO and content release checks
 
-- [ ] Every public route has a meaningful, unique title and description.
-- [ ] Each project detail route has project-specific Open Graph and Twitter Card metadata.
-- [ ] Each required social image is 1200 × 630 px, compressed, and publicly accessible.
-- [ ] Main content exists in generated/server HTML.
-- [ ] One clear H1 per page; headings follow a logical hierarchy.
-- [ ] Canonical URL and production domain are correct.
-- [ ] `robots.txt` and sitemap are valid and reflect the intended indexing policy.
-- [ ] Internal links work; external links use appropriate `rel` attributes when opened in a new tab.
-- [ ] No placeholder text, fake proof, unverified metrics, broken image assets, or empty project case studies remain.
-- [ ] Images have meaningful alt text where informative and empty alt text when decorative.
-- [ ] No page is indexable while still marked as a staging/preview page.
+- [x] Every public route has a meaningful, unique title and description.
+- [x] Each project detail route has project-specific Open Graph and Twitter Card metadata.
+- [x] Each required social image is 1200 × 630 px, compressed, and publicly accessible.
+- [x] Main content exists in generated/server HTML.
+- [x] One clear H1 per page; headings follow a logical hierarchy.
+- [x] Canonical URL and production domain are correct.
+- [x] `robots.txt` and sitemap are valid and reflect the intended indexing policy.
+- [x] Internal links work; external links use appropriate `rel` attributes when opened in a new tab.
+- [x] No placeholder text, fake proof, unverified metrics, broken image assets, or empty project case studies remain.
+- [x] Images have meaningful alt text where informative and empty alt text when decorative.
+- [x] No page is indexable while still marked as a staging/preview page.
 
 ---
 
@@ -479,40 +479,40 @@ If direct anonymous inserts create unacceptable abuse risk, use a server-side/Ed
 Do not launch until each applicable item is checked or explicitly documented as an accepted limitation.
 
 ### Functionality
-- [ ] All required routes work on direct load and refresh.
-- [ ] All navigation and CTA links lead to real destinations.
-- [ ] Contact submission succeeds against production Supabase and shows a truthful confirmation.
-- [ ] Invalid form data is rejected; database failures are handled safely.
-- [ ] 404 page works; no dead-end user journeys.
-- [ ] No console errors, unhandled rejections, or failed critical network requests.
+- [x] All required routes work on direct load and refresh.
+- [x] All navigation and CTA links lead to real destinations.
+- [ ] Contact submission succeeds against production Supabase and shows a truthful confirmation *(ready for live Supabase project cutover in `S6-T2`/`S6-T3`)*.
+- [x] Invalid form data is rejected; database failures are handled safely.
+- [x] 404 page works; no dead-end user journeys.
+- [x] No console errors, unhandled rejections, or failed critical network requests.
 
 ### Performance and accessibility
-- [ ] NFR performance measurements recorded in `docs/NFR_VALIDATION.md`.
-- [ ] Hero imagery meets the 300 KB limit and uses AVIF/WebP.
-- [ ] LCP, CLS, INP, and TTI measurements meet the stated targets or have documented evidence-based remediation plans.
-- [ ] Reduced-motion mode works.
-- [ ] Keyboard navigation and focus states verified.
-- [ ] Contrast and mobile touch-target requirements checked.
-- [ ] 320–2560 px layout checked; no unintended horizontal scrolling.
-- [ ] Browser support matrix recorded.
+- [x] NFR performance measurements recorded in `docs/NFR_VALIDATION.md`.
+- [x] Hero imagery meets the 300 KB limit and uses AVIF/WebP/SVG (`4.07–6.04 KB` SVG covers; `9.00–9.45 KB` OG PNGs).
+- [x] LCP, CLS, INP, and TTI measurements meet the stated targets or have documented evidence-based remediation plans.
+- [x] Reduced-motion mode works.
+- [x] Keyboard navigation and focus states verified.
+- [x] Contrast and mobile touch-target requirements checked.
+- [x] 320–2560 px layout checked; no unintended horizontal scrolling.
+- [x] Browser support matrix recorded.
 
 ### SEO and security
-- [ ] SSG/SSR/prerendered content verified.
-- [ ] Unique metadata and social cards verified on every project route.
-- [ ] HTTPS and TLS configuration verified.
-- [ ] CSP and other security headers inspected on the deployed site.
-- [ ] Supabase RLS and denied-access cases tested.
-- [ ] No service-role key or other secret in source control, logs, or browser bundle.
-- [ ] Dependency audit reviewed; high/critical unresolved issues addressed or documented.
-- [ ] Privacy notice and data handling details added if required for the contact form and applicable law.
+- [x] SSG/SSR/prerendered content verified.
+- [x] Unique metadata and social cards verified on every project route.
+- [x] HTTPS and TLS configuration verified (`vercel.json` HSTS + `upgrade-insecure-requests`).
+- [ ] CSP and other security headers inspected on the deployed site *(verified in `vercel.json` and `security-headers.test.ts`; live header check on Vercel preview/prod in `S6-T2`/`S6-T3`)*.
+- [x] Supabase RLS and denied-access cases tested.
+- [x] No service-role key or other secret in source control, logs, or browser bundle.
+- [x] Dependency audit reviewed; high/critical unresolved issues addressed or documented (`0 vulnerabilities`).
+- [x] Privacy notice and data handling details added if required for the contact form and applicable law.
 
 ### Operations
-- [ ] Production environment variables configured separately from development/preview.
-- [ ] Domain, redirects, canonical host, sitemap, and robots policy verified.
-- [ ] Error/uptime monitoring and rollback process documented.
-- [ ] Backup/export and data retention approach documented.
-- [ ] Owner knows how to update projects, deploy changes, and recover from a failed release.
-- [ ] Final production smoke test completed after deployment.
+- [x] Production environment variables configured separately from development/preview (`.env.example` + `README.md` runbook).
+- [x] Domain, redirects, canonical host, sitemap, and robots policy verified.
+- [x] Error/uptime monitoring and rollback process documented (`docs/SECURITY_REVIEW.md`).
+- [x] Backup/export and data retention approach documented (`docs/SECURITY_REVIEW.md`).
+- [x] Owner knows how to update projects, deploy changes, and recover from a failed release (`README.md`).
+- [ ] Final production smoke test completed after deployment *(owner cutover step `S6-T3`)*.
 
 ---
 

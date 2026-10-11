@@ -73,7 +73,7 @@ test.describe('Contact Form Validation, Anti-Spam Timing & Honest Fallback State
 
     await page.getByLabel(/Full Name/i).fill('Wanjiku Mwangi');
     await page.getByLabel(/Email Address/i).fill('wanjiku@nairobi-ventures.co.ke');
-    await page.getByLabel(/Project Scope \/ Category/i).selectOption('systems-architecture');
+    await page.getByLabel(/Project Scope \/ Category/i).selectOption('backend-api-systems');
     await page
       .getByLabel(/Project Details & Timeline/i)
       .fill(
