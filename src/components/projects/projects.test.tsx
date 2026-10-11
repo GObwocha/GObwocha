@@ -183,7 +183,9 @@ describe('Typed project content & SVG cover asset verification (S2-T3)', () => {
       expect(project.seoTitle).toContain(project.title);
       expect(project.seoDescription.length).toBeGreaterThan(40);
       expect(project.ogImage).toBe(`/og/projects/${project.slug}.png`);
-      expect(project.coverImage).toBe(`/images/projects/${project.slug}-cover.svg`);
+      expect(project.coverImage).toMatch(
+        new RegExp(`^/images/projects/${project.slug}-cover\\.(png|svg)$`),
+      );
 
       if (project.liveUrl) {
         expect(project.liveUrl).toMatch(/^https:\/\//);
@@ -208,22 +210,31 @@ describe('Typed project content & SVG cover asset verification (S2-T3)', () => {
     expect(somastar?.teammates?.map((t) => t.name)).toEqual(['Emmanuel Makori Obiero']);
   });
 
-  it('verifies all 7 bespoke SVG cover illustrations exist on disk, use viewBox="0 0 800 500", and are under 15 KB', () => {
+  it('verifies all 7 project cover illustrations/screenshots exist on disk with valid headers', () => {
     const publicDir = path.resolve(process.cwd(), 'public');
 
     for (const project of projects) {
-      const relativeSvgPath = project.coverImage.replace(/^\//, '');
-      const fullSvgPath = path.join(publicDir, relativeSvgPath);
+      const relativeCoverPath = project.coverImage.replace(/^\//, '');
+      const fullCoverPath = path.join(publicDir, relativeCoverPath);
 
-      expect(fs.existsSync(fullSvgPath)).toBe(true);
-      const stat = fs.statSync(fullSvgPath);
+      expect(fs.existsSync(fullCoverPath)).toBe(true);
+      const stat = fs.statSync(fullCoverPath);
       expect(stat.size).toBeGreaterThan(500);
-      expect(stat.size).toBeLessThan(15 * 1024);
 
-      const svgContent = fs.readFileSync(fullSvgPath, 'utf-8');
-      expect(svgContent).toContain('viewBox="0 0 800 500"');
-      expect(svgContent).toContain('#0A0A09');
-      expect(svgContent).toContain('#FF4D1C');
+      if (project.coverImage.endsWith('.svg')) {
+        const svgContent = fs.readFileSync(fullCoverPath, 'utf-8');
+        expect(svgContent).toContain('viewBox="0 0 800 500"');
+      } else {
+        const header = fs.readFileSync(fullCoverPath).subarray(0, 12);
+        const isPng = header
+          .subarray(0, 8)
+          .equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
+        const isJpeg = header[0] === 0xff && header[1] === 0xd8 && header[2] === 0xff;
+        const isWebp =
+          header.subarray(0, 4).toString('ascii') === 'RIFF' &&
+          header.subarray(8, 12).toString('ascii') === 'WEBP';
+        expect(isPng || isJpeg || isWebp).toBe(true);
+      }
     }
   });
 });

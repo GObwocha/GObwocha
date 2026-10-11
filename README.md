@@ -30,7 +30,7 @@ All project content is strongly typed in [`src/data/projects.ts`](src/data/proje
 3. **Kula-Kwa-Macho** (`/work/kula-kwa-macho`) — _Interactive Kenyan Food Discovery & Culinary Platform_ (`https://github.com/GObwocha/Kula-Kwa-Macho`, Live: `https://kula-kwa-macho-zeta.vercel.app`)
 4. **SomaStar** (`/work/somastar`) — _Adaptive Learning & AI Exam Intelligence Platform_ (`https://github.com/Emmanuel-Makori-Obiero/somastar`)
    - **Co-Engineered With:** Emmanuel Makori Obiero (`@Emmanuel-Makori-Obiero`).
-5. **GeliScope** (`/work/geliscope`) — _Multi-Role AI Educational Diagnostic & Socratic Tutoring Portal_ (Live: `https://geliscope.up.railway.app/`)
+5. **GeliScope** (`/work/geliscope`) — _AI Vision Assessment Engine & Cognitive Profiling Platform_ (Live: `https://geliscope.up.railway.app/`)
 6. **Email Analyzer** (`/work/email-analyzer`) — _Automated AI Academic Inbox Digest Pipeline_ (`https://github.com/GObwocha/Email-Analyzer`)
 7. **The Ole~Ken Hotel** (`/work/ole-ken-hotel`) — _Contemporary African Hospitality Website Redesign_ (Live: `https://the-ole-ken-hotel-revamp-rebsite.vercel.app/`, Official Reference: `https://www.theolekenhotel.co.ke/`)
 

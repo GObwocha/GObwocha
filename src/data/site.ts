@@ -118,9 +118,9 @@ export const siteConfig: SiteConfig = {
       summary:
         'Integrating multimodal LLMs, rubric-based diagnostic engines, and OpenStreetMap routing graphs into deterministic product workflows.',
       deliverables: [
-        'Multimodal Gemini Vision & structured output pipelines',
+        'AI Vision assessment & automated exam marking pipelines',
         'Geospatial route optimization & carbon telemetry modeling',
-        'Adaptive assessment & Socratic tutoring engines',
+        'Cognitive & skill profiling analytics and adaptive assessments',
       ],
       technologies: [
         'Google Gemini API',

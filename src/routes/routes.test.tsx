@@ -225,6 +225,18 @@ describe('Sprint 2 Route Implementations (S2-T1, S2-T4, S2-T5)', () => {
       unmount();
 
       const geliscopeRender = renderRoute('/work/geliscope');
+      expect(
+        screen.getByRole('heading', {
+          level: 1,
+          name: /geliscope — ai vision assessment engine & cognitive profiling platform/i,
+        }),
+      ).toBeInTheDocument();
+      expect(screen.getAllByText(/Laravel \(PHP\)/i).length).toBeGreaterThanOrEqual(1);
+      expect(screen.getAllByText(/MongoDB/i).length).toBeGreaterThanOrEqual(1);
+      expect(screen.getAllByText(/Laravel Sanctum/i).length).toBeGreaterThanOrEqual(1);
+      expect(screen.getAllByText(/Chart\.js/i).length).toBeGreaterThanOrEqual(1);
+      expect(screen.getAllByText(/Upload Centre/i).length).toBeGreaterThanOrEqual(1);
+      expect(screen.getAllByText(/Leaderboards/i).length).toBeGreaterThanOrEqual(1);
       const geliscopeSolutionLink = screen.getByRole('link', {
         name: /launch live solution — geliscope/i,
       });
