@@ -1,0 +1,81 @@
+/**
+ * Motion & Choreography Tokens — GObwocha Portfolio (S1-T2)
+ * Strictly GPU-composited transform and opacity transitions using custom cubic-bezier curves.
+ */
+
+:root {
+  /* Custom Agency Cubic-Bezier Easing Tokens */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Choreographed Duration Scale */
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+  --duration-reveal: 750ms;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.25rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* GPU-Accelerated Entry Reveal Classes (transform & opacity only) */
+.reveal-up {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+  animation-name: reveal-up;
+  animation-duration: var(--duration-reveal);
+  animation-timing-function: var(--ease-out-expo);
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
+.stagger-1 {
+  animation-delay: 80ms;
+}
+
+.stagger-2 {
+  animation-delay: 160ms;
+}
+
+.stagger-3 {
+  animation-delay: 240ms;
+}
+
+.stagger-4 {
+  animation-delay: 320ms;
+}
+
+/* First-Class Reduced-Motion Mode (WCAG 2.1 AA / NFR 4.2 Gate) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-up,
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

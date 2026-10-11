@@ -1,0 +1,125 @@
+/**
+ * Tokenized Design System — GObwocha Portfolio (S1-T2)
+ * Polarity: Dark Default (Warm Obsidian) + Light Mode (Archival Stone)
+ * Note: Pure black and pure white hex values are intentionally excluded.
+ */
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Surface Palette — Warm Obsidian */
+  --color-bg-primary: #0a0a09;
+  --color-bg-elevated: #121210;
+  --color-bg-subtle: #181815;
+
+  /* Typography Hierarchy — Warm Archival Stone Tones (WCAG 2.1 AA/AAA Verified) */
+  --color-text-primary: #f5f3ee; /* >= 17.8:1 vs bg-primary */
+  --color-text-secondary: #b8b3a8; /* >= 9.4:1 vs bg-primary */
+  --color-text-tertiary: #8a857a; /* >= 5.2:1 vs bg-primary (strictly passes 4.5:1 AA) */
+
+  /* Single Disciplined Accent — International Vermilion */
+  --color-accent: #ff4d1c;
+  --color-accent-hover: #ff6a40;
+  --color-accent-contrast: #0a0a09;
+
+  /* Structural Hairlines & Borders */
+  --color-border: #262522;
+  --color-border-strong: #3d3b36;
+
+  /* Semantic Status Tokens */
+  --color-status-success: #34d399;
+  --color-status-error: #f87171;
+  --color-status-warning: #fbbf24;
+
+  /* Semantic Aliases for Architectural Layout & Components */
+  --color-bg-canvas: var(--color-bg-primary);
+  --color-bg-surface: var(--color-bg-elevated);
+  --color-on-accent: var(--color-accent-contrast);
+  --color-focus-ring: var(--color-accent);
+  --color-selection-bg: var(--color-accent);
+  --color-selection-text: var(--color-accent-contrast);
+  --color-success: var(--color-status-success);
+  --color-error: var(--color-status-error);
+  --color-warning: var(--color-status-warning);
+
+  /* Fluid Spacing Scale (320px to 2560px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  --space-6: clamp(1.375rem, 1.15rem + 0.75vw, 1.875rem);
+  --space-7: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+  --space-8: clamp(2rem, 1.6rem + 1.5vw, 3rem);
+  --space-9: clamp(2.25rem, 1.8rem + 1.75vw, 3.375rem);
+  --space-10: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+  --space-11: clamp(2.75rem, 2.1rem + 2.5vw, 4.25rem);
+  --space-12: clamp(3rem, 2.25rem + 3vw, 4.75rem);
+  --space-13: clamp(3.25rem, 2.4rem + 3.4vw, 5.25rem);
+  --space-14: clamp(3.5rem, 2.6rem + 3.8vw, 5.75rem);
+  --space-15: clamp(3.75rem, 2.8rem + 4.1vw, 6.125rem);
+  --space-16: clamp(4rem, 3rem + 4.5vw, 6.5rem);
+  --space-section: clamp(4rem, 8vw, 9rem);
+
+  /* Layout & Swiss 12-Column Grid Tokens */
+  --container-max: 1680px;
+  --container-reading: 65ch;
+  --container-gutter: clamp(1.25rem, 4vw, 4rem);
+  --grid-columns: 12;
+  --grid-gap: clamp(1rem, 2vw, 2rem);
+  --grid-gutter: var(--grid-gap);
+  --grid-margin: var(--container-gutter);
+  --header-height: clamp(3.75rem, 3.25rem + 1vw, 4.75rem);
+
+  /* Touch Target Ergonomics (WCAG 2.1 / NFR Gate) */
+  --touch-target-min: 44px;
+  --touch-target-gap: 8px;
+  --tap-target-min: var(--touch-target-min);
+  --tap-target-gap: var(--touch-target-gap);
+
+  /* Focus Ring Architecture */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 3px;
+  --focus-ring-color: var(--color-accent);
+
+  /* Border Radius Scale */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 9999px;
+
+  /* Z-Index Elevation Ledger */
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-skip-link: 1000;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Surface Palette — Archival Stone */
+  --color-bg-primary: #f5f3ee;
+  --color-bg-elevated: #faf8f5;
+  --color-bg-subtle: #eae6dd;
+
+  /* Typography Hierarchy — Deep Carbon Ink (WCAG 2.1 AA/AAA Verified) */
+  --color-text-primary: #0a0a09; /* >= 17.8:1 vs bg-primary */
+  --color-text-secondary: #3d3b36; /* >= 10.0:1 vs bg-primary */
+  --color-text-tertiary: #5c5850; /* >= 6.3:1 vs bg-primary (strictly passes 4.5:1 AA) */
+
+  /* Single Disciplined Accent — Archival Vermilion */
+  --color-accent: #c83208;
+  --color-accent-hover: #a62604;
+  --color-accent-contrast: #faf8f5;
+
+  /* Structural Hairlines & Borders */
+  --color-border: #d8d3c8;
+  --color-border-strong: #b8b3a8;
+
+  /* Semantic Status Tokens */
+  --color-status-success: #047857;
+  --color-status-error: #b91c1c;
+  --color-status-warning: #b45309;
+}
