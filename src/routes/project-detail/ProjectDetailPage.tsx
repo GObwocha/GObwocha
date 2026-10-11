@@ -378,6 +378,41 @@ export function ProjectDetailPage() {
             <li key={outcome}>{outcome}</li>
           ))}
         </ul>
+
+        {project.liveUrl && (
+          <div
+            className="case-study__solution-deployment"
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 'var(--space-4)',
+              padding: 'var(--space-5)',
+              marginTop: 'var(--space-2)',
+              backgroundColor: 'var(--color-bg-elevated)',
+              border: '1px solid var(--color-border-strong)',
+              borderLeft: '3px solid var(--color-accent)',
+              borderRadius: 'var(--radius-sm)',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
+              <p className="eyebrow">Live Solution Deployment</p>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-sm)' }}>
+                Explore the deployed {project.title} solution live in your browser:
+              </p>
+            </div>
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary case-study__solution-link"
+              style={{ minHeight: '44px', minWidth: '44px' }}
+            >
+              Launch Live Solution — {project.title}
+            </a>
+          </div>
+        )}
       </section>
 
       {/* Next / Previous Case Study Navigation */}

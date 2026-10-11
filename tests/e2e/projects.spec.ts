@@ -87,6 +87,36 @@ test.describe('Project Index, Case Study Deep Links, Collaborator Credits & Inva
       await expect(coverImg).toHaveAttribute('width', '1200');
       await expect(coverImg).toHaveAttribute('height', '750');
     }
+
+    const liveSolutionTargets = [
+      {
+        path: '/work/kula-kwa-macho',
+        linkName: 'Launch Live Solution — Kula-Kwa-Macho',
+        expectedUrl: 'https://kula-kwa-macho-zeta.vercel.app',
+      },
+      {
+        path: '/work/geliscope',
+        linkName: 'Launch Live Solution — GeliScope',
+        expectedUrl: 'https://geliscope.up.railway.app/',
+      },
+      {
+        path: '/work/ole-ken-hotel',
+        linkName: 'Launch Live Solution — The Ole~Ken Hotel',
+        expectedUrl: 'https://the-ole-ken-hotel-revamp-rebsite.vercel.app/',
+      },
+      {
+        path: '/work/greenroute',
+        linkName: 'Launch Live Solution — GreenRoute',
+        expectedUrl: 'https://greenroute-production.up.railway.app/',
+      },
+    ] as const;
+
+    for (const target of liveSolutionTargets) {
+      await page.goto(target.path);
+      const solutionLink = page.getByRole('link', { name: target.linkName });
+      await expect(solutionLink).toBeVisible();
+      await expect(solutionLink).toHaveAttribute('href', target.expectedUrl);
+    }
   });
 
   test('collaborator acknowledgements and GitHub profile links render accurately on Halisi, GreenRoute, and SomaStar', async ({

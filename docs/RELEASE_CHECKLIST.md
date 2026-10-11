@@ -59,6 +59,9 @@
 - [x] **Backup/export and data retention approach documented:** 12-month retention policy and CSV/SQL export procedures documented in `docs/SECURITY_REVIEW.md` (§6, §8).
 - [x] **Owner knows how to update projects, deploy changes, and recover from a failed release:** Step-by-step runbook provided in `README.md`.
 
-### Remaining Owner Live-Environment Actions (At Production Cutover)
-1. **Apply Supabase Migration to Live Project:** Run `supabase db push` (or execute `supabase/migrations/20261011000000_create_contact_submissions.sql` in the production Supabase SQL Editor).
-2. **Configure Vercel Production Environment Variables:** Set `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` (publishable `anon` key only), and `VITE_SITE_URL` in the Vercel project settings, then trigger a production deployment and submit one live smoke-test enquiry.
+### Live Production Verification Summary (`https://gobwocha.vercel.app`)
+1. **Direct Deep Links & Pre-rendered SSG HTML (`S6-T2` / `S6-T3`):** Validated live across `/`, `/work`, `/work/halisi-app`, `/work/greenroute`, `/about`, `/contact`, and `/non-existent-page`.
+2. **Crawler Directives & Sitemap (`S5-T2` / `S6-T3`):** `https://gobwocha.vercel.app/robots.txt` (`text/plain` RFC 9309 response) and `https://gobwocha.vercel.app/sitemap.xml` verified live.
+3. **Edge Security Headers & CSP (`S5-T3` / `S6-T2`):** `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, and `Referrer-Policy` verified live in browser DevTools Network headers.
+4. **Live Supabase Contact Submission (`S3-T2` / `S3-T3` / `S6-T3`):** End-to-end enquiry submission from `https://gobwocha.vercel.app/contact` into `public.contact_submissions` verified live.
+5. **Live Solution Deployment Links & Email Compose Fix:** Added live deployment buttons in `03 // Solution & Verified Outcomes` for **GreenRoute** (`https://greenroute-production.up.railway.app/`), **Kula-Kwa-Macho** (`https://kula-kwa-macho-zeta.vercel.app`), **GeliScope** (`https://geliscope.up.railway.app/`), and **The Ole~Ken Hotel** (`https://the-ole-ken-hotel-revamp-rebsite.vercel.app/`), and replaced same-frame `mailto:` links with Gmail Web Compose (`target="_blank"`) + automatic clipboard copy so email links work in browsers without a native OS mail handler.

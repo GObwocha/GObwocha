@@ -170,7 +170,9 @@ export function ContactForm({ client, mountedAtMs, onSuccess }: ContactFormProps
           <p>
             You can also send your enquiry directly via email at{' '}
             <a
-              href={`mailto:${siteConfig.email}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.email}&su=Project%20Enquiry%20%E2%80%94%20Geoffrey%20Obwocha`}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 minHeight: '44px',
                 minWidth: '44px',

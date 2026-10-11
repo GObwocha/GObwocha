@@ -154,4 +154,17 @@ describe('App route and layout shell (S1-T3)', () => {
     const skipLink = screen.getByRole('link', { name: /skip to main content/i });
     expect(skipLink).toHaveAttribute('href', '#main-content');
   });
+
+  it('renders a reliable footer email link that opens Gmail Web Compose in a new tab', () => {
+    renderAtRoute('/');
+
+    const footer = screen.getByRole('contentinfo');
+    const emailLink = within(footer).getByRole('link', { name: /ondiekobwocha@gmail\.com/i });
+    expect(emailLink).toHaveAttribute(
+      'href',
+      'https://mail.google.com/mail/?view=cm&fs=1&to=ondiekobwocha@gmail.com&su=Project%20Enquiry%20%E2%80%94%20Geoffrey%20Obwocha',
+    );
+    expect(emailLink).toHaveAttribute('target', '_blank');
+    expect(emailLink).toHaveAttribute('rel', 'noopener noreferrer');
+  });
 });

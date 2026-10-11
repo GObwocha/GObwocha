@@ -300,6 +300,20 @@ export function HomePage() {
                     </li>
                   ))}
                 </ul>
+
+                {project.liveUrl && (
+                  <div style={{ paddingTop: 'var(--space-2)' }}>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary"
+                      style={{ minHeight: '44px', minWidth: '44px' }}
+                    >
+                      Launch Live Solution — {project.title}
+                    </a>
+                  </div>
+                )}
               </article>
             );
           })}
@@ -454,7 +468,9 @@ export function HomePage() {
             Go to Contact Form
           </Link>
           <a
-            href={`mailto:${siteConfig.email}`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.email}&su=Project%20Enquiry%20%E2%80%94%20Geoffrey%20Obwocha`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-secondary cta-secondary"
             style={{ minHeight: '44px', minWidth: '44px' }}
           >

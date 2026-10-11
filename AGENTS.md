@@ -361,8 +361,8 @@ portfolio/
 | S5-T3 | Security review | Security checklist and fixes | S3-T1–T4 | DONE | Verify HTTPS/TLS, CSP, security headers, RLS, secret isolation, input validation, dependency audit, safe errors, and public API permissions. Document exceptions. |
 | S5-T4 | Production observability and recovery | Monitoring + rollback plan | S5-T3 | DONE | Configure uptime/error monitoring appropriate to budget, production alerts, backup/export approach, deployment rollback, and owner handoff. Verify provider SLA before any 99.9% claim. |
 | S6-T1 | End-to-end and regression suite | CI-ready tests | S2-T4, S3-T3, S4-T4 | DONE | Playwright covers navigation, project deep links, contact success/failure, 404, keyboard flow, and mobile menu. Run reliably in CI without production secrets. |
-| S6-T2 | Production preview and acceptance | Preview deployment | S5-T1–T4, S6-T1 | READY | Deploy preview with production-like environment. Test form against safe test data, inspect headers, logs, links, responsive behavior, and all release checklist items. |
-| S6-T3 | Launch and verify | Production release | S6-T2 | TODO | Configure domain/HTTPS, verify redirects, sitemap/robots, analytics only if approved, real contact submission, error monitoring, and post-launch smoke test. |
+| S6-T2 | Production preview and acceptance | Preview deployment | S5-T1–T4, S6-T1 | DONE | Deploy preview with production-like environment. Test form against safe test data, inspect headers, logs, links, responsive behavior, and all release checklist items. |
+| S6-T3 | Launch and verify | Production release | S6-T2 | DONE | Configure domain/HTTPS, verify redirects, sitemap/robots, analytics only if approved, real contact submission, error monitoring, and post-launch smoke test. |
 | S6-T4 | Handover and documentation | README + maintenance guide | S6-T3 | DONE | Document local setup, env vars, migrations, content updates, deployment, rollback, backups, known limitations, and owner actions. No unresolved release blockers. |
 
 ### Task completion template
@@ -481,7 +481,7 @@ Do not launch until each applicable item is checked or explicitly documented as 
 ### Functionality
 - [x] All required routes work on direct load and refresh.
 - [x] All navigation and CTA links lead to real destinations.
-- [ ] Contact submission succeeds against production Supabase and shows a truthful confirmation *(ready for live Supabase project cutover in `S6-T2`/`S6-T3`)*.
+- [x] Contact submission succeeds against production Supabase and shows a truthful confirmation *(verified live on `https://gobwocha.vercel.app/contact`)*.
 - [x] Invalid form data is rejected; database failures are handled safely.
 - [x] 404 page works; no dead-end user journeys.
 - [x] No console errors, unhandled rejections, or failed critical network requests.
@@ -500,7 +500,7 @@ Do not launch until each applicable item is checked or explicitly documented as 
 - [x] SSG/SSR/prerendered content verified.
 - [x] Unique metadata and social cards verified on every project route.
 - [x] HTTPS and TLS configuration verified (`vercel.json` HSTS + `upgrade-insecure-requests`).
-- [ ] CSP and other security headers inspected on the deployed site *(verified in `vercel.json` and `security-headers.test.ts`; live header check on Vercel preview/prod in `S6-T2`/`S6-T3`)*.
+- [x] CSP and other security headers inspected on the deployed site *(verified live on `https://gobwocha.vercel.app` and in `security-headers.test.ts`)*.
 - [x] Supabase RLS and denied-access cases tested.
 - [x] No service-role key or other secret in source control, logs, or browser bundle.
 - [x] Dependency audit reviewed; high/critical unresolved issues addressed or documented (`0 vulnerabilities`).
@@ -512,7 +512,7 @@ Do not launch until each applicable item is checked or explicitly documented as 
 - [x] Error/uptime monitoring and rollback process documented (`docs/SECURITY_REVIEW.md`).
 - [x] Backup/export and data retention approach documented (`docs/SECURITY_REVIEW.md`).
 - [x] Owner knows how to update projects, deploy changes, and recover from a failed release (`README.md`).
-- [ ] Final production smoke test completed after deployment *(owner cutover step `S6-T3`)*.
+- [x] Final production smoke test completed after deployment *(verified live on `https://gobwocha.vercel.app`)*.
 
 ---
 

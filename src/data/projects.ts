@@ -120,6 +120,7 @@ export const projects: readonly Project[] = [
     gallery: ['/images/projects/greenroute-cover.svg'],
     altText:
       'GreenRoute geospatial map architecture comparing NetworkX A* carbon-aware eco-routes and standard routes across Nairobi road segments',
+    liveUrl: 'https://greenroute-production.up.railway.app/',
     repositoryUrl: 'https://github.com/GObwocha/GreenRoute',
     publishedAt: '2025-01-20',
     featured: true,
@@ -257,6 +258,7 @@ export const projects: readonly Project[] = [
     gallery: ['/images/projects/geliscope-cover.svg'],
     altText:
       'GeliScope Vue 3 and Vuetify 3 educational portal showing Gemini Vision rubric grading and Bloom’s Taxonomy Socratic tutoring stages',
+    liveUrl: 'https://geliscope.up.railway.app/',
     publishedAt: '2024-12-01',
     featured: false,
     seoTitle: 'GeliScope — AI Educational Diagnostic & Socratic Tutoring Portal | Geoffrey Obwocha',
@@ -340,6 +342,7 @@ export const projects: readonly Project[] = [
     gallery: ['/images/projects/ole-ken-hotel-cover.svg'],
     altText:
       'The Ole~Ken Hotel hospitality website redesign in Next.js 14 showing luxury suite showcase and direct WhatsApp concierge booking flow',
+    liveUrl: 'https://the-ole-ken-hotel-revamp-rebsite.vercel.app/',
     referenceUrl: 'https://www.theolekenhotel.co.ke/',
     publishedAt: '2024-09-25',
     featured: false,

@@ -20,7 +20,11 @@ test.describe('Contact Form Validation, Anti-Spam Timing & Honest Fallback State
     const emailLink = directChannelsSection.getByRole('link', {
       name: 'ondiekobwocha@gmail.com',
     });
-    await expect(emailLink).toHaveAttribute('href', 'mailto:ondiekobwocha@gmail.com');
+    await expect(emailLink).toHaveAttribute(
+      'href',
+      'https://mail.google.com/mail/?view=cm&fs=1&to=ondiekobwocha@gmail.com&su=Project%20Enquiry%20%E2%80%94%20Geoffrey%20Obwocha',
+    );
+    await expect(emailLink).toHaveAttribute('target', '_blank');
 
     const githubLink = directChannelsSection.getByRole('link', {
       name: 'https://github.com/GObwocha',
@@ -66,9 +70,20 @@ test.describe('Contact Form Validation, Anti-Spam Timing & Honest Fallback State
     expect(supabaseRequests).toEqual([]);
   });
 
-  test('submitting a valid form without live Supabase credentials never fakes success and shows actionable mailto fallback', async ({
+  test('submitting a valid form when Supabase is unconfigured or unavailable never fakes success and shows actionable email fallback', async ({
     page,
   }) => {
+    await page.route('**/rest/v1/contact_submissions*', async (route) => {
+      await route.fulfill({
+        status: 503,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          code: 'PGRST000',
+          message: 'Simulated E2E unavailability to prevent test data in production DB',
+        }),
+      });
+    });
+
     await page.goto('/contact');
 
     await page.getByLabel(/Full Name/i).fill('Wanjiku Mwangi');
@@ -90,7 +105,11 @@ test.describe('Contact Form Validation, Anti-Spam Timing & Honest Fallback State
     await expect(errorBanner).toBeVisible();
     await expect(errorBanner).toContainText('You can also send your enquiry directly via email at');
 
-    const fallbackMailto = errorBanner.getByRole('link', { name: 'ondiekobwocha@gmail.com' });
-    await expect(fallbackMailto).toHaveAttribute('href', 'mailto:ondiekobwocha@gmail.com');
+    const fallbackEmailLink = errorBanner.getByRole('link', { name: 'ondiekobwocha@gmail.com' });
+    await expect(fallbackEmailLink).toHaveAttribute(
+      'href',
+      'https://mail.google.com/mail/?view=cm&fs=1&to=ondiekobwocha@gmail.com&su=Project%20Enquiry%20%E2%80%94%20Geoffrey%20Obwocha',
+    );
+    await expect(fallbackEmailLink).toHaveAttribute('target', '_blank');
   });
 });

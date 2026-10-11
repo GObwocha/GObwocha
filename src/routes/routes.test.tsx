@@ -166,6 +166,14 @@ describe('Sprint 2 Route Implementations (S2-T1, S2-T4, S2-T5)', () => {
       expect(timothyLink).toHaveAttribute('href', 'https://github.com/Tim-cm');
       expect(timothyLink).toHaveTextContent(/timothy mwita/i);
 
+      const solutionLiveLink = screen.getByRole('link', {
+        name: /launch live solution — greenroute/i,
+      });
+      expect(solutionLiveLink).toHaveAttribute(
+        'href',
+        'https://greenroute-production.up.railway.app/',
+      );
+
       expect(await axe(container)).toHaveNoViolations();
     });
 
@@ -192,8 +200,8 @@ describe('Sprint 2 Route Implementations (S2-T1, S2-T4, S2-T5)', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    it('renders Kula-Kwa-Macho case study at /work/kula-kwa-macho with verified live deployment URL and repository link', async () => {
-      const { container } = renderRoute('/work/kula-kwa-macho');
+    it('renders Kula-Kwa-Macho, GeliScope, and The Ole~Ken Hotel case studies with verified live deployment URLs in the Solution section', async () => {
+      const { container, unmount } = renderRoute('/work/kula-kwa-macho');
 
       expect(
         screen.getByRole('heading', {
@@ -202,13 +210,37 @@ describe('Sprint 2 Route Implementations (S2-T1, S2-T4, S2-T5)', () => {
         }),
       ).toBeInTheDocument();
 
-      const liveLink = screen.getByRole('link', { name: /live deployment/i });
+      const liveLink = screen.getByRole('link', { name: /^live deployment$/i });
       expect(liveLink).toHaveAttribute('href', 'https://kula-kwa-macho-zeta.vercel.app');
+
+      const kulaSolutionLink = screen.getByRole('link', {
+        name: /launch live solution — kula-kwa-macho/i,
+      });
+      expect(kulaSolutionLink).toHaveAttribute('href', 'https://kula-kwa-macho-zeta.vercel.app');
 
       const repoLink = screen.getByRole('link', { name: /github repository/i });
       expect(repoLink).toHaveAttribute('href', 'https://github.com/GObwocha/Kula-Kwa-Macho');
 
       expect(await axe(container)).toHaveNoViolations();
+      unmount();
+
+      const geliscopeRender = renderRoute('/work/geliscope');
+      const geliscopeSolutionLink = screen.getByRole('link', {
+        name: /launch live solution — geliscope/i,
+      });
+      expect(geliscopeSolutionLink).toHaveAttribute('href', 'https://geliscope.up.railway.app/');
+      expect(await axe(geliscopeRender.container)).toHaveNoViolations();
+      geliscopeRender.unmount();
+
+      const oleKenRender = renderRoute('/work/ole-ken-hotel');
+      const oleKenSolutionLink = screen.getByRole('link', {
+        name: /launch live solution — the ole~ken hotel/i,
+      });
+      expect(oleKenSolutionLink).toHaveAttribute(
+        'href',
+        'https://the-ole-ken-hotel-revamp-rebsite.vercel.app/',
+      );
+      expect(await axe(oleKenRender.container)).toHaveNoViolations();
     });
 
     it('renders NotFoundPage when navigating to an invalid project slug /work/invalid-slug', async () => {

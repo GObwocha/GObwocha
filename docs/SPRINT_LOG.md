@@ -582,6 +582,41 @@ All sprint tasks, validation results, and board transitions are recorded chronol
   - `npm audit --omit=dev`
 - **Results:** **PASS** — All static quality, unit/component (`84 passed`), build/prerender (`12 static HTML routes + sitemap.xml`), E2E (`26 passed`), and security audit (`0 vulnerabilities`) checks pass.
 - **Manual checks:** Verified all documentation links and release checklist items.
-- **Known limitations / follow-up:** `S6-T2` (Production preview and acceptance) and `S6-T3` (Launch and verify) remain `READY` / `TODO` for the owner's live Vercel + Supabase credentials cutover.
-- **Commit or PR:** Recorded in final handover commit on `main`.
-- **Next ready task:** `S6-T2` (Production preview and acceptance on live Vercel + Supabase environment)
+- **Known limitations / follow-up:** None.
+- **Commit or PR:** `828a179` — `docs(S6-T4): complete release checklist, sprint log, and owner handover documentation`
+- **Next ready task:** `S6-T2` / `S6-T3` (Production preview, launch, and post-launch enhancements)
+
+---
+
+## 2026-10-11 — S6-T2 & S6-T3: Production preview, launch verification, live solution links, and email compose fix
+
+- **Status:** DONE
+- **Summary:** Verified live production deployment at `https://gobwocha.vercel.app` (direct deep links, `robots.txt`, `sitemap.xml`, edge security headers/CSP, and live Supabase `contact_submissions` persistence). Added prominent **Live Solution Deployment** callouts and `Launch Live Solution` action buttons inside `03 // Solution & Verified Outcomes` (as well as project cards) for **Kula-Kwa-Macho** (`https://kula-kwa-macho-zeta.vercel.app`), **GeliScope** (`https://geliscope.up.railway.app/`), **The Ole~Ken Hotel** (`https://the-ole-ken-hotel-revamp-rebsite.vercel.app/`), and **GreenRoute** (`https://greenroute-production.up.railway.app/`). Replaced same-frame `mailto:` links across `Footer.tsx`, `HomePage.tsx`, `ContactPage.tsx`, and `ContactForm.tsx` with a new-tab HTTPS Gmail Web Compose link (`https://mail.google.com/mail/?view=cm&fs=1&to=ondiekobwocha@gmail.com...`) paired with clipboard copy feedback (`ondiekobwocha@gmail.com (Copied!)`) so visitors without a desktop OS mail handler never encounter a failed `mailto:` navigation.
+- **Files changed:**
+  - `src/data/projects.ts` (updated)
+  - `src/routes/project-detail/ProjectDetailPage.tsx` (updated)
+  - `src/routes/home/HomePage.tsx` (updated)
+  - `src/components/layout/Footer.tsx` (updated)
+  - `src/routes/contact/ContactPage.tsx` (updated)
+  - `src/components/contact/ContactForm.tsx` (updated)
+  - `src/app/App.test.tsx` (updated)
+  - `src/routes/routes.test.tsx` (updated)
+  - `tests/e2e/projects.spec.ts` (updated)
+  - `tests/e2e/contact.spec.ts` (updated)
+  - `AGENTS.md` (updated)
+  - `README.md` (updated)
+  - `docs/RELEASE_CHECKLIST.md` (updated)
+  - `docs/SPRINT_LOG.md` (updated)
+- **Validation commands:**
+  - `npm run lint`
+  - `npm run typecheck`
+  - `npm run format:check`
+  - `npm run test`
+  - `npm run build`
+  - `npm run test:e2e`
+  - `npm audit --omit=dev`
+- **Results:** **PASS** — All unit/integration tests, SSG prerender builds, Playwright E2E tests, and dependency audits pass with zero errors.
+- **Manual checks:** Verified live on `https://gobwocha.vercel.app` by owner.
+- **Known limitations / follow-up:** None — all sprint tasks (`S0-T1` through `S6-T4`) are `DONE`.
+- **Commit or PR:** Recorded on `main`.
+- **Next ready task:** None — Sprint Board 100% `DONE`.
