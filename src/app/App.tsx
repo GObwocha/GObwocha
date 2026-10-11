@@ -1,28 +1,23 @@
-import { Routes, Route } from 'react-router';
-
-function HomeView() {
-  return (
-    <main id="main-content">
-      <h1>Geoffrey Obwocha</h1>
-      <p>Systems Architect &amp; Full-Stack Product Engineer</p>
-    </main>
-  );
-}
-
-function NotFoundView() {
-  return (
-    <main id="main-content">
-      <h1>Page Not Found</h1>
-      <p>The requested page could not be found.</p>
-    </main>
-  );
-}
+import { Route, Routes } from 'react-router';
+import { RootLayout } from '../components/layout/RootLayout';
+import { AboutPage } from '../routes/about/AboutPage';
+import { ContactPage } from '../routes/contact/ContactPage';
+import { HomePage } from '../routes/home/HomePage';
+import { NotFoundPage } from '../routes/not-found/NotFoundPage';
+import { ProjectDetailPage } from '../routes/project-detail/ProjectDetailPage';
+import { WorkPage } from '../routes/work/WorkPage';
 
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomeView />} />
-      <Route path="*" element={<NotFoundView />} />
+      <Route element={<RootLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/work/:slug" element={<ProjectDetailPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
     </Routes>
   );
 }
