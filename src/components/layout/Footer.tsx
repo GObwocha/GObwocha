@@ -1,11 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
 const GMAIL_COMPOSE_URL =
   'https://mail.google.com/mail/?view=cm&fs=1&to=ondiekobwocha@gmail.com&su=Project%20Enquiry%20%E2%80%94%20Geoffrey%20Obwocha';
 
 export function Footer() {
+  const location = useLocation();
   const [copied, setCopied] = useState(false);
+
+  const handleNavClick = (to: string) => {
+    if (typeof window !== 'undefined' && location.pathname === to) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
 
   const handleEmailClick = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
@@ -27,17 +34,29 @@ export function Footer() {
         <nav aria-label="Footer navigation" className="site-footer__nav">
           <ul className="site-footer__links">
             <li>
-              <Link to="/work" style={{ minHeight: '44px', minWidth: '44px' }}>
+              <Link
+                to="/work"
+                onClick={() => handleNavClick('/work')}
+                style={{ minHeight: '44px', minWidth: '44px' }}
+              >
                 Work
               </Link>
             </li>
             <li>
-              <Link to="/about" style={{ minHeight: '44px', minWidth: '44px' }}>
+              <Link
+                to="/about"
+                onClick={() => handleNavClick('/about')}
+                style={{ minHeight: '44px', minWidth: '44px' }}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link to="/contact" style={{ minHeight: '44px', minWidth: '44px' }}>
+              <Link
+                to="/contact"
+                onClick={() => handleNavClick('/contact')}
+                style={{ minHeight: '44px', minWidth: '44px' }}
+              >
                 Contact
               </Link>
             </li>

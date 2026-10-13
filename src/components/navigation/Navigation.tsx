@@ -44,6 +44,13 @@ export function Navigation() {
     };
   }, [isOpen]);
 
+  const handleNavClick = (to: string) => {
+    handleClose();
+    if (typeof window !== 'undefined' && location.pathname === to) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav aria-label="Primary navigation" className="primary-nav">
       <button
@@ -69,7 +76,7 @@ export function Navigation() {
               <NavLink
                 to={item.to}
                 end={item.end}
-                onClick={handleClose}
+                onClick={() => handleNavClick(item.to)}
                 className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
                 style={{ minHeight: '44px', minWidth: '44px' }}
               >
@@ -81,7 +88,7 @@ export function Navigation() {
 
         <Link
           to="/contact"
-          onClick={handleClose}
+          onClick={() => handleNavClick('/contact')}
           className="nav-cta"
           style={{ minHeight: '44px', minWidth: '44px' }}
         >

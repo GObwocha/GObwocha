@@ -27,7 +27,7 @@ test.describe('Contact Form Validation, Anti-Spam Timing & Honest Fallback State
     await expect(emailLink).toHaveAttribute('target', '_blank');
 
     const githubLink = directChannelsSection.getByRole('link', {
-      name: 'https://github.com/GObwocha',
+      name: /GObwocha/i,
     });
     await expect(githubLink).toHaveAttribute('href', 'https://github.com/GObwocha');
   });

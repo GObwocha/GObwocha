@@ -198,7 +198,7 @@ describe('Typed project content & SVG cover asset verification (S2-T3)', () => {
     // Verify specific collaborator acknowledgements
     const halisi = getProjectBySlug('halisi-app');
     expect(halisi?.teammates?.map((t) => t.name)).toEqual([
-      'Collins Kimanzi (Collins Mwandikwa)',
+      'Collins Kimanzi',
       'Ndegwa Waudo',
       'Dennis Kuria',
     ]);

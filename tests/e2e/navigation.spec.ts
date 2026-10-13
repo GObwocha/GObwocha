@@ -167,4 +167,35 @@ test.describe('Primary Navigation, Skip Link, Mobile Drawer & 404 Recovery', () 
       }),
     ).toBeVisible();
   });
+
+  test('navigating from the bottom of one page resets scroll position to the top of the navigated page', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+
+    // Scroll to the bottom of the home page
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForFunction(() => window.scrollY > 400);
+
+    const initialScrollY = await page.evaluate(() => window.scrollY);
+    expect(initialScrollY).toBeGreaterThan(400);
+
+    // Click navigation link to /work in the footer
+    const footerWorkLink = page.locator('footer.site-footer').getByRole('link', { name: 'Work' });
+    await footerWorkLink.click();
+
+    await expect(page).toHaveURL(/\/work$/);
+    await expect(
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Selected Work & Engineering Case Studies',
+      }),
+    ).toBeVisible();
+
+    // Verify user was brought to the top of the navigated page
+    await page.waitForFunction(() => window.scrollY === 0);
+    const newScrollY = await page.evaluate(() => window.scrollY);
+    expect(newScrollY).toBe(0);
+  });
 });
