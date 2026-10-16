@@ -70,7 +70,7 @@ describe('Edge Security Headers & Bundle Secret Isolation (S5-T3)', () => {
     expect(csp).toContain("style-src 'self' 'unsafe-inline'");
     expect(csp).toContain("img-src 'self' data: blob:");
     expect(csp).toContain("font-src 'self'");
-    expect(csp).toContain("connect-src 'self' https://*.supabase.co");
+    expect(csp).toContain("connect-src 'self' https://*.supabase.co https://api.emailjs.com");
     expect(csp).toContain("object-src 'none'");
     expect(csp).toContain("base-uri 'self'");
     expect(csp).toContain("form-action 'self'");

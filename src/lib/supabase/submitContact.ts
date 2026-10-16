@@ -13,6 +13,7 @@ import type {
   ContactSubmissionResult,
 } from '../../types/contact';
 import { getSupabaseBrowserClient } from './client';
+import { sendEmailWithEmailJs } from '../email/emailjs';
 
 export interface ContactInsertQueryBuilder {
   insert(
@@ -102,6 +103,12 @@ export async function submitContact(
     }
 
     recordSubmissionAttempt(validation.data.email, validation.data.message, nowMs);
+
+    // Step 6: Dispatch notification email via EmailJS (if configured)
+    // Non-blocking fire-and-forget so visitor UX remains instantaneous (< 150ms)
+    sendEmailWithEmailJs(validation.data).catch((err) => {
+      console.warn('Email notification dispatch skipped or failed:', err);
+    });
 
     return {
       ok: true,
