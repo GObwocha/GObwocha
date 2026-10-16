@@ -620,3 +620,29 @@ All sprint tasks, validation results, and board transitions are recorded chronol
 - **Known limitations / follow-up:** None — all sprint tasks (`S0-T1` through `S6-T4`) are `DONE`.
 - **Commit or PR:** Recorded on `main`.
 - **Next ready task:** None — Sprint Board 100% `DONE`.
+
+---
+
+## 2026-10-16 — Option A: Supabase Edge Function & Database Webhook Email Notification Engine
+
+- **Status:** DONE
+- **Summary:** Implemented Option A for automated contact enquiry email forwarding to `ondiekobwocha@gmail.com`. Created the Supabase Edge Function `notify-enquiry` (`supabase/functions/notify-enquiry/index.ts`) which receives new `public.contact_submissions` rows via Supabase Database Webhooks and dispatches formatted HTML notification emails using the Resend REST API. All untrusted visitor input is HTML-escaped. The notification template features the portfolio's Warm Obsidian palette (`#0A0A09`), International Vermilion accents (`#FF4D1C`), client metadata, East Africa Time (`EAT / UTC+3`) and UTC timestamps, and a pre-configured `Reply-To` header (`${name} <${email}>`) so hitting "Reply" in Gmail replies directly to the client. Added automated test suite (`src/lib/supabase/notifyEnquiry.test.ts` with 21 unit tests), updated `package.json` with `"deploy:function"` script, and authored `docs/NOTIFICATION_EMAIL_SETUP.md`.
+- **Files changed:**
+  - `supabase/functions/notify-enquiry/index.ts` (created)
+  - `src/lib/supabase/notifyEnquiry.test.ts` (created)
+  - `docs/NOTIFICATION_EMAIL_SETUP.md` (created)
+  - `package.json` (updated with deploy:function script)
+  - `.gitignore` (updated to ignore supabase/.temp/)
+  - `src/components/navigation/ScrollToTop.test.tsx` (removed unused Route, Routes, Link imports)
+  - `docs/SPRINT_LOG.md` (updated)
+- **Validation commands:**
+  - `npm run lint`
+  - `npm run typecheck`
+  - `npm run format:check`
+  - `npm run test`
+  - `npm run build`
+- **Results:** **PASS** — 109 tests passed across 12 test files; TypeScript strict check passed with zero errors; ESLint clean; Prettier format check clean; SSG build and pre-render completed successfully.
+- **Manual checks:** Verified `docs/NOTIFICATION_EMAIL_SETUP.md` contains step-by-step instructions for obtaining a free Resend key, setting Supabase secrets, deploying the Edge Function, and configuring the database webhook.
+- **Known limitations / follow-up:** Requires owner to paste their free Resend API key into Supabase secrets and click "Create webhook" in the Supabase Dashboard per `docs/NOTIFICATION_EMAIL_SETUP.md`.
+- **Commit or PR:** To be committed to `main`.
+- **Next ready task:** Owner deployment of the function and webhook activation.

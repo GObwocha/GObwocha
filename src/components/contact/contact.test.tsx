@@ -334,11 +334,9 @@ describe('Contact enquiries: migration & RLS, anti-spam, validation, and form UX
       }
     });
 
-    it(
-      'renders accessible labels, shows programmatic validation errors, and transitions to success state',
-      async () => {
-        const user = userEvent.setup();
-        const { client, insertMock } = createMockSupabaseClient();
+    it('renders accessible labels, shows programmatic validation errors, and transitions to success state', async () => {
+      const user = userEvent.setup();
+      const { client, insertMock } = createMockSupabaseClient();
 
       render(<ContactForm client={client} />);
 

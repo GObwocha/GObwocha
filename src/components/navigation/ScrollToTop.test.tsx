@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { MemoryRouter, Route, Routes, Link } from 'react-router';
+import { MemoryRouter } from 'react-router';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ScrollToTop } from './ScrollToTop';
 
