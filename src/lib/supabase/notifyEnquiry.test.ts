@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   buildEmailContent,
   escapeHtml,
@@ -7,10 +7,15 @@ import {
   getProjectTypeLabel,
   handleNotifyEnquiry,
   isAuthorized,
+  isRecentDuplicate,
   PROJECT_TYPE_LABELS,
+  resetProcessedSubmissionsForTests,
 } from '../../../supabase/functions/notify-enquiry/index';
 
 describe('notify-enquiry Edge Function (Option A)', () => {
+  beforeEach(() => {
+    resetProcessedSubmissionsForTests();
+  });
   describe('extractRecord', () => {
     it('extracts record from Supabase Database Webhook INSERT payload', () => {
       const webhookPayload = {
@@ -358,6 +363,69 @@ describe('notify-enquiry Edge Function (Option A)', () => {
       } finally {
         globalThis.fetch = originalFetch;
       }
+    });
+
+    it('deduplicates rapid dual-triggers without calling Resend twice', async () => {
+      const originalFetch = globalThis.fetch;
+      const fetchMock = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({ id: 'email_first_call' }),
+      });
+      globalThis.fetch = fetchMock;
+
+      try {
+        const payload = JSON.stringify({
+          name: 'Dual Trigger User',
+          email: 'dual@example.com',
+          message: 'This payload arrives both via direct invoke and DB webhook.',
+        });
+
+        // First call (e.g. from client direct invoke)
+        const res1 = await handleNotifyEnquiry(
+          new Request('http://localhost', {
+            method: 'POST',
+            body: payload,
+            headers: { 'Content-Type': 'application/json' },
+          }),
+          { RESEND_API_KEY: 're_test_key_123' },
+        );
+        expect(res1.status).toBe(200);
+        const json1 = await res1.json();
+        expect(json1.ok).toBe(true);
+        expect(json1.id).toBe('email_first_call');
+
+        // Second call within seconds (e.g. from Database Webhook)
+        const res2 = await handleNotifyEnquiry(
+          new Request('http://localhost', {
+            method: 'POST',
+            body: payload,
+            headers: { 'Content-Type': 'application/json' },
+          }),
+          { RESEND_API_KEY: 're_test_key_123' },
+        );
+        expect(res2.status).toBe(200);
+        const json2 = await res2.json();
+        expect(json2.ok).toBe(true);
+        expect(json2.deduplicated).toBe(true);
+
+        // Fetch should ONLY have been called ONCE
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+      } finally {
+        globalThis.fetch = originalFetch;
+      }
+    });
+  });
+
+  describe('isRecentDuplicate unit tests', () => {
+    it('returns false on first submission and true on duplicate within 30s window', () => {
+      const email = 'client@example.com';
+      const msg = 'Need systems architecture audit.';
+
+      expect(isRecentDuplicate(email, msg, 1000)).toBe(false);
+      expect(isRecentDuplicate(email, msg, 5000)).toBe(true); // 4s later (< 30s)
+      expect(isRecentDuplicate(email, msg, 20000)).toBe(true); // 19s later (< 30s)
+      expect(isRecentDuplicate(email, msg, 32000)).toBe(false); // 31s later (> 30s window expired)
     });
   });
 });

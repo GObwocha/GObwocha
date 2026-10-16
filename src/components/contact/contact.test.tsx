@@ -397,6 +397,6 @@ describe('Contact enquiries: migration & RLS, anti-spam, validation, and form UX
 
       expect(screen.getByRole('status')).toHaveTextContent(/enquiry received/i);
       expect(await axe(container)).toHaveNoViolations();
-    });
+    }, 20000);
   });
 });

@@ -292,6 +292,40 @@ Dispatched by Supabase Edge Function (notify-enquiry) for gobwocha.vercel.app`;
   return { subject, html, text };
 }
 
+const processedSubmissions = new Map<string, number>();
+
+/**
+ * Checks and records recent submissions to deduplicate rapid dual triggers.
+ */
+export function isRecentDuplicate(
+  email: string,
+  message: string,
+  nowMs = Date.now(),
+  windowMs = 30_000,
+): boolean {
+  const key = `${email.toLowerCase()}:${message.slice(0, 100)}`;
+  const previous = processedSubmissions.get(key);
+
+  if (previous !== undefined && nowMs - previous < windowMs) {
+    return true;
+  }
+
+  processedSubmissions.set(key, nowMs);
+
+  // Evict entries older than 2 minutes to keep memory bounded
+  for (const [k, timestamp] of processedSubmissions.entries()) {
+    if (nowMs - timestamp > 120_000) {
+      processedSubmissions.delete(k);
+    }
+  }
+
+  return false;
+}
+
+export function resetProcessedSubmissionsForTests(): void {
+  processedSubmissions.clear();
+}
+
 /**
  * Validates request authorization header against optional WEBHOOK_SECRET.
  */
@@ -373,6 +407,21 @@ export async function handleNotifyEnquiry(
       }),
       {
         status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+      },
+    );
+  }
+
+  // Deduplicate rapid dual-invocations (e.g. if both client invoke and DB webhook fire)
+  if (isRecentDuplicate(record.email, record.message)) {
+    return new Response(
+      JSON.stringify({
+        ok: true,
+        message: 'Notification already dispatched recently; deduplicated.',
+        deduplicated: true,
+      }),
+      {
+        status: 200,
         headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
       },
     );
