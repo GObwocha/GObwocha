@@ -1,137 +1,21 @@
-# Geoffrey Obwocha — Production Portfolio Website
+# 💫 About Me:
+Geoffrey Obwocha is a Systems Architect and Full-Stack Product Engineer based in Nairobi, Kenya, studying Computer Science at the University of Nairobi and building collaborative engineering systems with the Chiromo Tech Club.<br><br>His work spans multi-layered fraud detection for mobile money ecosystems, carbon-aware urban routing engines, adaptive AI educational diagnostics, and high-conversion web applications.<br><br>Every system is engineered around strict type safety, verifiable data boundaries, accessible interfaces, and measurable real-world utility rather than decorative complexity.
 
-<!--
-**GObwocha/GObwocha** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
--->
 
-Production portfolio website for **Geoffrey Obwocha** (`@GObwocha` — Systems Architect & Full-Stack Product Engineer, Nairobi, Kenya), engineered with **React 19**, **TypeScript**, **Vite**, **React Router v7 (SSG/SSR Pre-rendering)**, and **Supabase**.
+## 🌐 Socials:
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/g_obwocha_dev) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/geoffrey-obwocha) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:ondiekiobwocha@gmail.com) 
 
----
+# 💻 Tech Stack:
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![Vuetify](https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=vuetify&logoColor=AEDDFF) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white) ![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Dribbble](https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&logo=dribbble&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Playwright](https://img.shields.io/badge/-playwright-%232EAD33?style=for-the-badge&logo=playwright&logoColor=white) ![Puppeteer](https://img.shields.io/badge/Puppeteer-%2340B5A4.svg?style=for-the-badge&logo=Puppeteer&logoSize=auto&logoColor=black) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Meta](https://img.shields.io/badge/Meta-%230467DF.svg?style=for-the-badge&logo=Meta&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white) ![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.shion.dev/api?username=GObwocha&theme=dark&hide_border=true&include_all_commits=true&count_private=false)<br/>
+![](https://streak-stats.demolab.com/?user=GObwocha&theme=dark&hide_border=true)<br/>
+![](https://github-readme-stats.shion.dev/api/top-langs/?username=GObwocha&theme=dark&hide_border=true&include_all_commits=true&count_private=false&layout=compact)
 
-## 1. Architecture & Tech Stack
-
-- **Frontend:** React 19 + TypeScript (strict mode, `noUncheckedIndexedAccess`) + Vite 8
-- **Rendering Strategy:** React Router v7 with deterministic build-time Static Site Generation (`src/entry-server.tsx` + `scripts/prerender.mjs`) producing crawlable semantic HTML, unique Open Graph (`1200×630`) & Twitter Card metadata, JSON-LD structured data, and `dist/sitemap.xml` across all 11 public routes and `dist/404.html`.
-- **Design System:** Custom tokenized CSS architecture (`src/styles/tokens.css`, `typography.css`, `motion.css`, `globals.css`) in Warm Obsidian (`#0A0A09`), Archival Bone (`#F5F3EE`), and International Vermilion (`#FF4D1C`) with WCAG 2.1 AA verified contrast (`>= 4.5:1`), fluid `clamp()` typography, and first-class `prefers-reduced-motion: reduce` support.
-- **Backend / Persistence:** Supabase Postgres (`public.contact_submissions`) protected by `FORCE ROW LEVEL SECURITY` (`anon` `INSERT`-only policy; zero public `SELECT`, `UPDATE`, or `DELETE` access).
-- **Security & Abuse Controls:** Dual client/database input validation (`zod` + Postgres `CHECK` constraints), honeypot + minimum interaction timing (`1500ms`) + cooldown rate-limiting (`src/lib/security/antiSpam.ts`), sanitized user-facing error handling (`src/lib/security/errors.ts`), and strict edge CSP & HSTS headers (`vercel.json`).
-- **Quality & Verification:** ESLint, Prettier, Vitest, React Testing Library, `vitest-axe`, Playwright E2E, and `@axe-core/playwright`.
+### ✍️ Random Dev Quote
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 ---
+[![](https://komarev.com/ghpvc/?username=GObwocha&icon=0)](https://visitcount.itsvg.in)
 
-## 2. Featured Engineering Case Studies & Collaborator Credits
-
-All project content is strongly typed in [`src/data/projects.ts`](src/data/projects.ts):
-
-1. **Halisi** (`/work/halisi-app`) — _AI-Powered Brand Impersonation & M-Pesa Fraud Detection_ (`https://github.com/sigangandegwa/HalisiApp`)
-   - **Co-Engineered With:** Collins Kimanzi / Collins Mwandikwa (`@Kimanzi-Collins`), Ndegwa Waudo (`@sigangandegwa`), and Dennis Kuria (_Chiromo Tech Club, University of Nairobi_).
-2. **GreenRoute** (`/work/greenroute`) — _Eco-Routing & Carbon-Aware Navigation Engine for Nairobi_ (`https://github.com/GObwocha/GreenRoute`, Live: `https://greenroute-production.up.railway.app/`)
-   - **Co-Engineered With:** Benson Mose (`@Bemos26`) and Timothy Mwita (`@Tim-cm`).
-3. **Kula-Kwa-Macho** (`/work/kula-kwa-macho`) — _Interactive Kenyan Food Discovery & Culinary Platform_ (`https://github.com/GObwocha/Kula-Kwa-Macho`, Live: `https://kula-kwa-macho-zeta.vercel.app`)
-4. **SomaStar** (`/work/somastar`) — _Adaptive Learning & AI Exam Intelligence Platform_ (`https://github.com/Emmanuel-Makori-Obiero/somastar`)
-   - **Co-Engineered With:** Emmanuel Makori Obiero (`@Emmanuel-Makori-Obiero`).
-5. **GeliScope** (`/work/geliscope`) — _AI Vision Assessment Engine & Cognitive Profiling Platform_ (Live: `https://geliscope.up.railway.app/`)
-6. **Email Analyzer** (`/work/email-analyzer`) — _Automated AI Academic Inbox Digest Pipeline_ (`https://github.com/GObwocha/Email-Analyzer`)
-7. **The Ole~Ken Hotel** (`/work/ole-ken-hotel`) — _Contemporary African Hospitality Website Redesign_ (Live: `https://the-ole-ken-hotel-revamp-rebsite.vercel.app/`, Official Reference: `https://www.theolekenhotel.co.ke/`)
-
----
-
-## 3. Local Setup & Environment Configuration
-
-### Prerequisites
-
-- **Node.js:** `>= 20.x` (verified on `v24.11.0`)
-- **Package Manager:** `npm` (locked via `package-lock.json`)
-
-### Installation
-
-1. Copy `.env.example` to `.env.local`:
-   ```bash
-   cp .env.example .env.local
-   ```
-2. Populate `.env.local` with your public Supabase project URL and publishable `anon` key:
-   ```dotenv
-   VITE_SUPABASE_URL=https://your-project-ref.supabase.co
-   VITE_SUPABASE_ANON_KEY=your-anon-publishable-key
-   VITE_SITE_URL=https://gobwocha.vercel.app
-   ```
-   > **Security Rule:** Never place `SUPABASE_SERVICE_ROLE_KEY` or `sb_secret_*` keys in any `VITE_*` variable or client-side file. `src/lib/supabase/env.ts` automatically rejects `service_role` keys at runtime.
-3. Install dependencies reproducibly:
-   ```bash
-   npm ci
-   ```
-4. Start the local development server:
-   ```bash
-   npm run dev
-   ```
-
----
-
-## 4. Canonical Validation Commands
-
-```bash
-# 1. Reproducible dependency install
-npm ci
-
-# 2. Static quality gates
-npm run lint
-npm run typecheck
-npm run format:check
-
-# 3. Automated unit, component, SEO, security, and accessibility tests (Vitest + vitest-axe)
-npm run test
-
-# 4. Production client + SSR build and static route pre-rendering (dist/ + dist/sitemap.xml)
-npm run build
-
-# 5. End-to-end, responsive (320px-2560px), reduced-motion, and axe-core tests (Playwright)
-npm run test:e2e
-
-# 6. Production dependency vulnerability audit
-npm audit --omit=dev
-```
-
----
-
-## 5. Supabase Database Migration & Maintenance Guide
-
-### Applying the Contact Submissions Schema & RLS Policies
-
-The versioned migration [`supabase/migrations/20261011000000_create_contact_submissions.sql`](supabase/migrations/20261011000000_create_contact_submissions.sql) creates `public.contact_submissions` with bounded `CHECK` constraints and strict `INSERT`-only Row Level Security for anonymous visitors.
-
-To apply via Supabase CLI:
-
-```bash
-npx supabase link --project-ref <your-project-ref>
-npx supabase db push
-```
-
-Or paste the contents of `supabase/migrations/20261011000000_create_contact_submissions.sql` directly into the **Supabase Dashboard → SQL Editor** and click **Run**.
-
-### Updating Portfolio Content & Adding Projects
-
-1. Edit [`src/data/projects.ts`](src/data/projects.ts) (for case studies) or [`src/data/site.ts`](src/data/site.ts) (for biography, availability, or capabilities).
-2. Place project cover illustrations (`800×500` SVG/AVIF/WebP, `≤ 300 KB`) in `public/images/projects/`.
-3. Regenerate `1200×630` Open Graph social preview PNGs (`public/og/**/*.png`):
-   ```bash
-   node scripts/generate-og-assets.mjs
-   ```
-4. Run `npm run test && npm run build` to verify TypeScript schema compliance, pre-render the new static `/work/<slug>/index.html` route, and update `dist/sitemap.xml`.
-
-### Deployment, Backups & Instant Rollback
-
-- **Deployment (Vercel):** Push to `main` after CI passes. Ensure `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, and `VITE_SITE_URL` are configured in Vercel Project Settings → Environment Variables.
-- **Database Backups & Retention:** Export enquiries periodically from **Supabase Dashboard → Table Editor → `contact_submissions` → Export to CSV**, and run the 12-month retention cleanup SQL documented in [`docs/SECURITY_REVIEW.md`](docs/SECURITY_REVIEW.md).
-- **Instant Rollback:** Run `npx vercel rollback` or promote the previous healthy deployment in **Vercel Dashboard → Deployments → Instant Rollback**.
-
----
-
-## 6. Architecture & Governance Documentation
-
-- [`AGENTS.md`](AGENTS.md) — Governing specification, sprint board, and release gates
-- [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) — Rendering architecture decision and sprint plan
-- [`docs/DESIGN_DIRECTION.md`](docs/DESIGN_DIRECTION.md) — _Architectural Precision_ design direction and token blueprint
-- [`docs/NFR_VALIDATION.md`](docs/NFR_VALIDATION.md) — Measured performance, accessibility, responsive, SEO, and security evidence
-- [`docs/SECURITY_REVIEW.md`](docs/SECURITY_REVIEW.md) — Threat model, CSP/HSTS headers, RLS audit, SLA review, and recovery plan
-- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md) — Pre-launch verification checklist and owner cutover steps
-- [`docs/SPRINT_LOG.md`](docs/SPRINT_LOG.md) — Chronological sprint execution and test log
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
