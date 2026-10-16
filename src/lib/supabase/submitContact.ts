@@ -103,25 +103,6 @@ export async function submitContact(
 
     recordSubmissionAttempt(validation.data.email, validation.data.message, nowMs);
 
-    // Step 6: Dispatch notification to Edge Function in the background (fire-and-forget).
-    // Guarantees email notification delivery even if the Database Webhook is not configured.
-    const clientWithFunctions = client as {
-      functions?: {
-        invoke?: (fnName: string, options?: { body?: unknown }) => Promise<{ error: unknown }>;
-      };
-    };
-
-    if (typeof clientWithFunctions.functions?.invoke === 'function') {
-      try {
-        await clientWithFunctions.functions.invoke('notify-enquiry', {
-          body: validation.data,
-        });
-      } catch (fnErr) {
-        // Notification failure does not affect the confirmed database insertion
-        console.warn('Notification dispatch fallback log:', fnErr);
-      }
-    }
-
     return {
       ok: true,
     };
