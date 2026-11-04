@@ -366,3 +366,12 @@ And verified via the canonical `AGENTS.md` §8 sequence:
 - **NFR Matrix & Owner-Input Content Gaps (`S0-T3`):** See [`docs/NFR_VALIDATION.md`](./NFR_VALIDATION.md) for the complete mapping of all 34 non-functional requirements across `AGENTS.md` §4.1–§4.5 (`PERF-01..09`, `A11Y-01..07`, `RESP-01..05`, `SEO-01..05`, `SEC-01..08`) and the 13 owner-input content gaps (`GAP-01..13`) governed by the `TODO: OWNER INPUT REQUIRED` contract.
 - **Visual Reference Inspection & Original Design Direction (`S0-T4`):** See [`docs/DESIGN_DIRECTION.md`](./DESIGN_DIRECTION.md) for the empirical analysis of `https://www.product.inc/`, the 4 design pillars (*Architectural Precision*), WCAG 2.1 AA contrast-verified color tokens (`#0A0A09` Warm Obsidian / `#F5F3EE` Archival Stone / `#FF4D1C` International Vermilion), fluid typography (`Syne` + `Plus Jakarta Sans` + `JetBrains Mono`), 60 FPS GPU motion curves, and explicit anti-copy boundaries.
 
+---
+
+### 3.6 Performance & Technical SEO Optimization Plan (Post-Launch PSI Audit)
+
+- **Audit Reference:** Google PageSpeed Insights baseline (`gtn46q180q`), Desktop 100/100, Mobile 98/100, DevTools Network Waterfall.
+- **Detailed Action Plan:** See [`docs/PERFORMANCE_OPTIMIZATION_PLAN.md`](./PERFORMANCE_OPTIMIZATION_PLAN.md) for the forensic breakdown of image payload reduction (2.7 MB -> < 300 KB), critical CSS inlining (eliminating 300ms render-blocking), route-level JavaScript code splitting (eliminating 131 KB unused JS and main-thread long tasks), and edge caching hardening to secure a deterministic 100/100 on mobile.
+
+
+
