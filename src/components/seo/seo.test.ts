@@ -62,6 +62,23 @@ describe('SEO metadata engine and verified 7-project dataset (S1-T4)', () => {
     expect(canonicals.size).toBe(staticRoutes.length);
   });
 
+  it('includes high-priority LCP image preload only for the home route (Task P3)', () => {
+    const homeMeta = resolveRouteMetadata('/');
+    expect(homeMeta.preloadImage).toBe('/images/projects/halisi-app-cover.webp');
+
+    const homeSerialized = serializeHeadTags(homeMeta);
+    expect(homeSerialized).toContain(
+      '<link rel="preload" as="image" href="/images/projects/halisi-app-cover.webp" type="image/webp" fetchpriority="high" />',
+    );
+
+    for (const route of ['/work', '/about', '/contact']) {
+      const nonHomeMeta = resolveRouteMetadata(route);
+      expect(nonHomeMeta.preloadImage).toBeUndefined();
+      const nonHomeSerialized = serializeHeadTags(nonHomeMeta);
+      expect(nonHomeSerialized).not.toContain('rel="preload"');
+    }
+  });
+
   it('resolves unique project-specific SEO metadata, OG images, and JSON-LD for all 7 portfolio projects', () => {
     expect(getAllProjectSlugs()).toEqual(expectedProjectSlugs);
     expect(projects).toHaveLength(7);

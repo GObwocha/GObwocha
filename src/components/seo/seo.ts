@@ -69,6 +69,7 @@ export function resolveRouteMetadata(pathname: string): RouteMetadata {
       title,
       description,
       canonicalUrl,
+      preloadImage: '/images/projects/halisi-app-cover.webp',
       ogType: 'website',
       ogTitle: title,
       ogDescription: description,
@@ -294,6 +295,15 @@ export function serializeHeadTags(meta: RouteMetadata): string {
     `<link rel="canonical" href="${escapeHtml(meta.canonicalUrl)}" />`,
     `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />`,
     `<link rel="manifest" href="/site.webmanifest" />`,
+  ];
+
+  if (meta.preloadImage) {
+    tags.push(
+      `<link rel="preload" as="image" href="${escapeHtml(meta.preloadImage)}" type="image/webp" fetchpriority="high" />`,
+    );
+  }
+
+  tags.push(
     `<meta property="og:type" content="${escapeHtml(meta.ogType)}" />`,
     `<meta property="og:site_name" content="${escapeHtml(siteConfig.name)}" />`,
     `<meta property="og:title" content="${escapeHtml(meta.ogTitle)}" />`,
@@ -308,7 +318,7 @@ export function serializeHeadTags(meta: RouteMetadata): string {
     `<meta name="twitter:description" content="${escapeHtml(meta.twitterDescription)}" />`,
     `<meta name="twitter:image" content="${escapeHtml(meta.twitterImage)}" />`,
     `<meta name="twitter:image:alt" content="${escapeHtml(meta.ogImageAlt)}" />`,
-  ];
+  );
 
   if (meta.jsonLd) {
     const serializedJson = JSON.stringify(meta.jsonLd).replace(/</g, '\\u003c');

@@ -208,4 +208,36 @@ describe('S5-T2: Pre-rendered SSG HTML, Social Cards & Crawlability Verification
     }
     expect(sitemapXml).not.toContain('https://gobwocha.vercel.app/404');
   });
+
+  it('verifies inlined critical CSS is present in all 12 pre-rendered HTML files and no render-blocking stylesheet links remain (P3)', () => {
+    const allPages = [...indexablePages, notFoundPage];
+    for (const page of allPages) {
+      const html = fs.readFileSync(page.filePath, 'utf-8');
+      expect(html).toContain('<style data-critical="true">');
+      expect(html).not.toMatch(/<link[^>]+rel=["']stylesheet["'][^>]*>/i);
+
+      const styleMatch = html.match(/<style data-critical="true">([\s\S]*?)<\/style>/);
+      expect(styleMatch).not.toBeNull();
+      expect((styleMatch?.[1] ?? '').trim().length).toBeGreaterThan(1000);
+    }
+  });
+
+  it('verifies favicon and manifest tags are de-duplicated and present exactly once per page (P3)', () => {
+    const allPages = [...indexablePages, notFoundPage];
+    for (const page of allPages) {
+      const html = fs.readFileSync(page.filePath, 'utf-8');
+      const faviconMatches = html.match(/<link[^>]+rel="icon"[^>]*>/g) ?? [];
+      const manifestMatches = html.match(/<link[^>]+rel="manifest"[^>]*>/g) ?? [];
+
+      expect(faviconMatches.length, `Expected 1 favicon link in ${page.route}`).toBe(1);
+      expect(manifestMatches.length, `Expected 1 manifest link in ${page.route}`).toBe(1);
+    }
+  });
+
+  it('verifies home route (dist/index.html) contains LCP hero image preload tag (P3)', () => {
+    const homeHtml = fs.readFileSync(path.join(DIST_DIR, 'index.html'), 'utf-8');
+    expect(homeHtml).toContain(
+      '<link rel="preload" as="image" href="/images/projects/halisi-app-cover.webp" type="image/webp" fetchpriority="high" />',
+    );
+  });
 });

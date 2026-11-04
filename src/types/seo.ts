@@ -2,6 +2,7 @@ export interface RouteMetadata {
   title: string;
   description: string;
   canonicalUrl: string;
+  preloadImage?: string;
   ogType: 'website' | 'article' | 'profile';
   ogTitle: string;
   ogDescription: string;
