@@ -1,3 +1,4 @@
+// @vitest-environment node
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -77,6 +78,7 @@ describe('Edge Security Headers & Bundle Secret Isolation (S5-T3)', () => {
     expect(csp).toContain("frame-ancestors 'none'");
     expect(csp).toContain('upgrade-insecure-requests');
 
+    expect(headerMap.get('Cross-Origin-Opener-Policy')).toBe('same-origin');
     expect(headerMap.get('Strict-Transport-Security')).toBe(
       'max-age=63072000; includeSubDomains; preload',
     );
@@ -93,6 +95,33 @@ describe('Edge Security Headers & Bundle Secret Isolation (S5-T3)', () => {
       (assetsRule?.headers ?? []).map((item) => [item.key, item.value]),
     );
     expect(assetsHeaderMap.get('Cache-Control')).toBe('public, max-age=31536000, immutable');
+
+    const imagesRule = parsedConfig.headers?.find((rule) => rule.source === '/images/(.*)');
+    expect(imagesRule).toBeDefined();
+    const imagesHeaderMap = new Map<string, string>(
+      (imagesRule?.headers ?? []).map((item) => [item.key, item.value]),
+    );
+    expect(imagesHeaderMap.get('Cache-Control')).toBe('public, max-age=31536000, immutable');
+
+    const ogRule = parsedConfig.headers?.find((rule) => rule.source === '/og/(.*)');
+    expect(ogRule).toBeDefined();
+    const ogHeaderMap = new Map<string, string>(
+      (ogRule?.headers ?? []).map((item) => [item.key, item.value]),
+    );
+    expect(ogHeaderMap.get('Cache-Control')).toBe(
+      'public, max-age=604800, stale-while-revalidate=86400',
+    );
+
+    const metaRule = parsedConfig.headers?.find(
+      (rule) => rule.source === '/(favicon.svg|site.webmanifest)',
+    );
+    expect(metaRule).toBeDefined();
+    const metaHeaderMap = new Map<string, string>(
+      (metaRule?.headers ?? []).map((item) => [item.key, item.value]),
+    );
+    expect(metaHeaderMap.get('Cache-Control')).toBe(
+      'public, max-age=86400, stale-while-revalidate=3600',
+    );
   });
 
   it('verifies no service_role keys, sb_secret_ tokens, or server-only modules leak into src or dist bundles', () => {
