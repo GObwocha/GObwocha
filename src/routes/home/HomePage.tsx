@@ -225,7 +225,8 @@ export function HomePage() {
                     alt={project.altText}
                     width={800}
                     height={500}
-                    loading="lazy"
+                    loading={idx === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={idx === 0 ? 'high' : undefined}
                     decoding="async"
                     style={{
                       width: '100%',

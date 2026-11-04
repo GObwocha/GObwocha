@@ -58,7 +58,7 @@ describe('Sprint 2 Route Implementations (S2-T1, S2-T4, S2-T5)', () => {
       const featuredProjects = getFeaturedProjects();
       expect(featuredProjects.length).toBeGreaterThanOrEqual(4);
 
-      for (const project of featuredProjects) {
+      featuredProjects.forEach((project, idx) => {
         const projectLink = within(main).getByRole('link', {
           name: new RegExp(`${project.title} — ${project.subtitle}`, 'i'),
         });
@@ -67,8 +67,11 @@ describe('Sprint 2 Route Implementations (S2-T1, S2-T4, S2-T5)', () => {
         const projectImg = within(main).getByAltText(project.altText);
         expect(projectImg).toHaveAttribute('width', '800');
         expect(projectImg).toHaveAttribute('height', '500');
-        expect(projectImg).toHaveAttribute('loading', 'lazy');
-      }
+        expect(projectImg).toHaveAttribute('loading', idx === 0 ? 'eager' : 'lazy');
+        if (idx === 0) {
+          expect(projectImg).toHaveAttribute('fetchpriority', 'high');
+        }
+      });
 
       // View All 7 Case Studies link
       const viewAllLink = within(main).getByRole('link', { name: /view all 7 case studies/i });

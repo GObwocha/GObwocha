@@ -184,7 +184,7 @@ describe('Typed project content & SVG cover asset verification (S2-T3)', () => {
       expect(project.seoDescription.length).toBeGreaterThan(40);
       expect(project.ogImage).toBe(`/og/projects/${project.slug}.png`);
       expect(project.coverImage).toMatch(
-        new RegExp(`^/images/projects/${project.slug}-cover\\.(png|svg)$`),
+        new RegExp(`^/images/projects/${project.slug}-cover\\.(webp|svg|png)$`),
       );
 
       if (project.liveUrl) {
