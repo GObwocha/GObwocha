@@ -1,6 +1,6 @@
 # 💫 About Me:
 
-Geoffrey Obwocha is a Systems Architect and Full-Stack Product Engineer based in Nairobi, Kenya, studying Computer Science at the University of Nairobi and building collaborative engineering systems with the Chiromo Tech Club.<br><br>His work spans multi-layered fraud detection for mobile money ecosystems, carbon-aware urban routing engines, adaptive AI educational diagnostics, and high-conversion web applications.<br><br>Every system is engineered around strict type safety, verifiable data boundaries, accessible interfaces, and measurable real-world utility rather than decorative complexity.
+Geoffrey Obwocha is a Systems Architect and Full-Stack Product Engineer based in Nairobi, Kenya.<br><br>His work spans multi-layered fraud detection for mobile money ecosystems, carbon-aware urban routing engines, adaptive AI educational diagnostics, and high-conversion web applications.<br><br>Every system is engineered around strict type safety, verifiable data boundaries, accessible interfaces, and measurable real-world utility rather than decorative complexity.
 
 ## 🌐 Socials:
 
