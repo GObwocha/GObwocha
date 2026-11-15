@@ -280,7 +280,7 @@ export const projects: readonly Project[] = [
     summary:
       'An automated inbox triage and scheduled EAT daily digest pipeline built with Google Apps Script, Node.js, and Gemini 1.5 Flash that distills high-volume university email threads into prioritized action summaries.',
     problem:
-      'University of Nairobi students and academic club coordinators receive dozens of daily circulars, timetable revisions, scholarship notices, and project threads—making it easy to miss time-sensitive deadlines buried in long email bodies.',
+      'University students and academic club coordinators receive dozens of daily circulars, timetable revisions, scholarship notices, and project threads—making it easy to miss time-sensitive deadlines buried in long email bodies.',
     role: 'Creator & Systems Engineer — Pipeline Architecture, Apps Script Automation & Gemini Integration',
     process: [
       'Built a scheduled Google Apps Script and Node.js ingestion workflow that securely queries unread academic and organizational Gmail threads on an East Africa Time (EAT / UTC+3) cron trigger.',
