@@ -11,7 +11,7 @@ export const projects: readonly Project[] = [
     problem:
       'Across Kenya’s mobile-money economy, attackers frequently impersonate trusted banks, telecom operators, and retail brands using lookalike domains, cloned brand logos, spoofed social media handles, and deceptive M-Pesa paybill/till prompts. Consumers and brand security teams lacked an integrated verification engine geared toward local scam patterns and accessible on both web and USSD.',
     role: 'Co-Engineer — Detection Pipeline, Backend Verification Services & Full-Stack Integration',
-    organization: 'Chiromo Tech Club, University of Nairobi',
+    //organization: 'Chiromo Tech Club, University of Nairobi',
     teammates: [
       {
         name: 'Collins Kimanzi',
