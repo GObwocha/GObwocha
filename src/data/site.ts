@@ -63,7 +63,7 @@ export const siteConfig: SiteConfig = {
   defaultOgImageAlt:
     'Geoffrey Obwocha — Systems Architect & Full-Stack Product Engineer based in Nairobi, Kenya',
   biography: [
-    'Geoffrey Obwocha is a Systems Architect and Full-Stack Product Engineer based in Nairobi, Kenya, studying Computer Science at the University of Nairobi and building collaborative engineering systems with the Chiromo Tech Club.',
+    'Geoffrey Obwocha is a Systems Architect and Full-Stack Product Engineer based in Nairobi, Kenya, building collaborative engineering systems with like-minded people.',
     'His work spans multi-layered fraud detection for mobile money ecosystems, carbon-aware urban routing engines, adaptive AI educational diagnostics, and high-conversion web applications.',
     'Every system is engineered around strict type safety, verifiable data boundaries, accessible interfaces, and measurable real-world utility rather than decorative complexity.',
   ],
