@@ -14,7 +14,7 @@ export function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/work/:slug" element={<ProjectDetailPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about" element={<NotFoundPage />} /> //<AboutPage />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
