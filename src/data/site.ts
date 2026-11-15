@@ -51,7 +51,7 @@ export const siteConfig: SiteConfig = {
     'I design and build production-grade software systems—from AI fraud-detection engines and geospatial routing tools to responsive web platforms tailored for East African and global markets.',
   location: 'Nairobi, Kenya',
   timezone: 'EAT (UTC+3)',
-  affiliation: 'Computer Science at the University of Nairobi | Chiromo Tech Club',
+  affiliation: 'Software Development at Strathmore University',
   availability:
     'Available for select software engineering, systems architecture, and product engagements',
   email: 'ondiekobwocha@gmail.com',
